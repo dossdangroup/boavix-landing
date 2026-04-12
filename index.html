@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOAVIX — Access Shouldn't Depend on Where You're From</title>
-  <meta name="description" content="BOAVIX is building a new way to move money across the Americas. Request early access and join the first 1,000.">
+  <title>BOAVIX — El acceso no deberia depender de donde vienes</title>
+  <meta name="description" content="BOAVIX esta construyendo una nueva forma de mover dinero en las Americas. Solicita acceso anticipado y se parte de los primeros 1,000.">
   <meta name="theme-color" content="#0A0A0F">
-  <meta property="og:title" content="BOAVIX — Access Shouldn't Depend on Where You're From">
-  <meta property="og:description" content="BOAVIX is building a new way to move money across the Americas. Request early access and join the first 1,000.">
+  <meta property="og:title" content="BOAVIX — El acceso no deberia depender de donde vienes">
+  <meta property="og:description" content="BOAVIX esta construyendo una nueva forma de mover dinero en las Americas. Solicita acceso anticipado y se parte de los primeros 1,000.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.boavix.com">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BOAVIX — Access Shouldn't Depend on Where You're From">
-  <meta name="twitter:description" content="BOAVIX is building a new way to move money across the Americas. Request early access and join the first 1,000.">
+  <meta name="twitter:title" content="BOAVIX — El acceso no deberia depender de donde vienes">
+  <meta name="twitter:description" content="BOAVIX esta construyendo una nueva forma de mover dinero en las Americas. Solicita acceso anticipado y se parte de los primeros 1,000.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -117,14 +117,21 @@
     }
     .nav .wrap { display: flex; align-items: center; justify-content: space-between; }
 
-    .nav-logo { display: flex; align-items: center; gap: 9px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
     .nav-mark {
       flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    .nav-mark svg { width: 30px; height: 30px; }
+    .nav-mark img {
+      width: 130%; height: 130%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
     .nav-wordmark {
-      font-size: 17px; font-weight: 800;
+      font-size: 22px; font-weight: 800;
       letter-spacing: 0.14em;
       color: var(--text-primary);
     }
@@ -155,6 +162,29 @@
       overflow: hidden;
       padding: 120px 0 80px;
       z-index: 1;
+    }
+
+    /* Americas map as hero background */
+    .hero-map-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-45%, -48%);
+      width: 110%;
+      max-width: 1400px;
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+      animation: heroMapFloat 30s ease-in-out infinite;
+      -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.4) 55%, transparent 75%);
+      mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.4) 55%, transparent 75%);
+    }
+    .hero-map-bg img {
+      width: 100%; height: auto;
+      display: block;
+    }
+    @keyframes heroMapFloat {
+      0%, 100% { transform: translate(-45%, -48%) scale(1); }
+      50% { transform: translate(-45%, -49.5%) scale(1.02); }
     }
 
     /* Gradient canvas */
@@ -515,24 +545,7 @@
     .fc-brand span:first-child { background: #EB001B; opacity: 0.75; }
     .fc-brand span:last-child { background: #F79E1B; opacity: 0.75; margin-left: -4px; }
 
-    /* Floating stat */
-    .float-stat {
-      position: absolute; z-index: 3;
-      top: 55px; right: -24px;
-      background: linear-gradient(162deg, #151C2B 0%, #0E1219 100%);
-      border-radius: var(--r-md);
-      border: 1px solid rgba(0,245,212,0.08);
-      padding: 12px 16px;
-      box-shadow: 0 10px 32px rgba(0,0,0,0.35), 0 0 16px rgba(0,245,212,0.03);
-      animation: fStat 10s ease-in-out infinite;
-      animation-delay: -1s;
-    }
-    @keyframes fStat {
-      0%, 100% { transform: translateY(0) rotate(0.8deg); }
-      50% { transform: translateY(-5px) rotate(-0.3deg); }
-    }
-    .fs-val { font-size: 16px; font-weight: 800; color: var(--pulse-teal); letter-spacing: -0.02em; line-height: 1; margin-bottom: 2px; }
-    .fs-label { font-size: 9.5px; color: var(--text-muted); font-weight: 500; }
+    /* (float-stat removed) */
 
     /* ═══════════════════════════════════════════════
        SECTION DIVIDER
@@ -890,99 +903,7 @@
       font-size: 12.5px; color: var(--text-muted); margin-top: 22px;
     }
 
-    /* ═══════════════════════════════════════════════
-       NETWORK MAP — PREMIUM IMAGE
-       ═══════════════════════════════════════════════ */
-    .netmap {
-      padding: clamp(100px, 12vh, 160px) 0;
-      position: relative; z-index: 1; overflow: hidden;
-    }
-
-    /* Ambient background depth layer */
-    .netmap::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%; height: 80%;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center,
-        rgba(0,240,255,0.04) 0%,
-        rgba(74,108,247,0.025) 30%,
-        rgba(123,63,228,0.015) 50%,
-        transparent 70%);
-      filter: blur(80px);
-      pointer-events: none;
-    }
-
-    .netmap-inner {
-      display: flex; flex-direction: column;
-      align-items: center; position: relative;
-    }
-
-    /* Map image container */
-    .map-frame {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto 48px;
-    }
-
-    /* Soft edge blending — fades image into page background */
-    .map-frame::after {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      pointer-events: none;
-      z-index: 2;
-      background:
-        radial-gradient(ellipse at center, transparent 45%, var(--bg) 78%);
-    }
-
-    /* Subtle ambient glow behind image */
-    .map-glow {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70%; height: 60%;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center,
-        rgba(0,240,255,0.06) 0%,
-        rgba(74,108,247,0.04) 35%,
-        transparent 65%);
-      filter: blur(60px);
-      pointer-events: none;
-      animation: mapGlowPulse 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes mapGlowPulse {
-      0% { opacity: 0.6; transform: translate(-50%,-50%) scale(0.95); }
-      100% { opacity: 1; transform: translate(-50%,-50%) scale(1.05); }
-    }
-
-    /* The map image itself */
-    .map-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      position: relative;
-      z-index: 1;
-      animation: mapFloat 20s ease-in-out infinite;
-    }
-
-    @keyframes mapFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    /* Caption */
-    .netmap-caption {
-      font-size: 14px; font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      text-align: center;
-      text-transform: uppercase;
-    }
+    /* (netmap section removed — map is now hero background) */
 
     /* ═══════════════════════════════════════════════
        FOOTER
@@ -1031,8 +952,7 @@
 
     @media (max-width: 768px) {
       .pillars-grid { grid-template-columns: 1fr; gap: 14px; }
-      .map-frame { max-width: 100%; }
-      .netmap { padding: clamp(60px, 8vh, 100px) 0; }
+      .hero-map-bg { width: 160%; opacity: 0.12; }
     }
 
     @media (max-width: 540px) {
@@ -1072,22 +992,11 @@
     <div class="wrap">
       <a href="/" class="nav-logo" aria-label="BOAVIX Home">
         <div class="nav-mark">
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="bvxGrad" x1="4" y1="32" x2="32" y2="4" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00F5D4"/>
-                <stop offset="50%" stop-color="#2E10FF"/>
-                <stop offset="100%" stop-color="#E91E63"/>
-              </linearGradient>
-            </defs>
-            <rect x="0.5" y="0.5" width="35" height="35" rx="9" fill="#0F172A" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
-            <path d="M11 26V10h7c2.8 0 4.8 1.4 4.8 4 0 1.9-1.1 3.2-2.7 3.7 2.1.6 3.4 2.2 3.4 4.3 0 3.2-2.4 4-5.3 4H11zm4.4-9.5h2.5c1.3 0 2.1-.8 2.1-1.9s-.9-1.8-2.1-1.8h-2.5v3.7zm0 6.7h2.9c1.5 0 2.4-.9 2.4-2.1 0-1.3-1-2.1-2.5-2.1h-2.8v4.2z" fill="url(#bvxGrad)"/>
-            <path d="M19.5 6.5l4.5 5h-2.8l-1.7-2-1.7 2H15l4.5-5z" fill="#00F5D4" opacity="0.85"/>
-          </svg>
+          <img src="boavix-logo.png" alt="BOAVIX" />
         </div>
         <span class="nav-wordmark">BOAVIX</span>
       </a>
-      <a href="#waitlist" class="nav-cta">Request Access</a>
+      <a href="#waitlist" class="nav-cta">Solicitar Acceso</a>
     </div>
   </nav>
 
@@ -1097,25 +1006,27 @@
     <div class="hero-orb hero-orb--primary" aria-hidden="true"></div>
     <div class="hero-orb hero-orb--accent" aria-hidden="true"></div>
 
+    <!-- Americas map as atmospheric hero background -->
+    <div class="hero-map-bg" aria-hidden="true">
+      <img src="americas-network-map.png" alt="" width="1504" height="816" />
+    </div>
+
     <div class="wrap">
       <div class="hero-copy">
         <div class="hero-badge reveal">
           <span class="badge-dot"></span>
-          <span>VE</span><span class="badge-sep">|</span>
-          <span>LATAM</span><span class="badge-sep">|</span>
-          <span>US</span><span class="badge-sep">|</span>
-          <span>CA</span>
+          <span>Desde Venezuela. Para las Americas.</span>
         </div>
-        <h1 class="reveal d1">Access Shouldn't Depend on <span class="tg">Where You're From.</span></h1>
-        <p class="hero-sub reveal d2">BOAVIX is building a new way to move money across the Americas — for the millions who've been forced to work around a system that was never built for them. Launching soon.</p>
+        <h1 class="reveal d1">El acceso no deberia depender de <span class="tg">donde vienes.</span></h1>
+        <p class="hero-sub reveal d2">BOAVIX esta construyendo una nueva forma de mover dinero en las Americas — para los millones que han tenido que buscar alternativas en un sistema que nunca fue hecho para ellos. Pronto.</p>
         <form class="hero-form reveal d3" id="heroForm" novalidate>
-          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
-          <button type="submit">Request Early Access</button>
+          <input type="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" required>
+          <button type="submit">Solicitar Acceso Anticipado</button>
           <span class="form-msg" id="heroMsg"></span>
         </form>
         <p class="hero-micro reveal d4">
-          <strong>The first 1,000 members get $10 credit at launch.</strong><br>
-          No noise. Just updates.
+          <strong>Los primeros 1,000 reciben $10 de credito al lanzamiento.</strong><br>
+          Sin ruido. Solo lo importante.
         </p>
       </div>
 
@@ -1133,32 +1044,32 @@
             </div>
             <div class="app-online"></div>
           </div>
-          <div class="app-bal-label">Total Balance</div>
+          <div class="app-bal-label">Balance Total</div>
           <div class="app-bal">$12,450.80</div>
           <div class="app-bal-delta">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 2L8 6H2L5 2Z" fill="#00F5D4"/></svg>
-            +2.4% this month
+            +2.4% este mes
           </div>
           <div class="app-btns">
-            <div class="app-btn app-btn--pri">Send</div>
-            <div class="app-btn app-btn--sec">Receive</div>
-            <div class="app-btn app-btn--sec">Pay</div>
+            <div class="app-btn app-btn--pri">Enviar</div>
+            <div class="app-btn app-btn--sec">Recibir</div>
+            <div class="app-btn app-btn--sec">Pagar</div>
           </div>
           <div class="app-div"></div>
-          <div class="app-activity-label">Recent Activity</div>
+          <div class="app-activity-label">Actividad Reciente</div>
           <div class="tx">
             <div class="tx-ico tx-ico--send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Sent to Juan P.</div><div class="tx-meta">Jan 25, 7:38 AM</div></div>
+            <div class="tx-info"><div class="tx-name">Enviado a Juan P.</div><div class="tx-meta">25 ene, 7:38 AM</div></div>
             <div class="tx-amt tx-amt--neg">-$150.00</div>
           </div>
           <div class="tx">
             <div class="tx-ico tx-ico--recv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 7L7 17M7 17H17M7 17V7"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Received from Wise</div><div class="tx-meta">Jan 24, 2:15 PM</div></div>
+            <div class="tx-info"><div class="tx-name">Recibido de Wise</div><div class="tx-meta">24 ene, 2:15 PM</div></div>
             <div class="tx-amt tx-amt--pos">+$1,200.00</div>
           </div>
           <div class="tx">
             <div class="tx-ico tx-ico--pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Payment to Revolut</div><div class="tx-meta">Jan 23, 11:02 AM</div></div>
+            <div class="tx-info"><div class="tx-name">Pago a Revolut</div><div class="tx-meta">23 ene, 11:02 AM</div></div>
             <div class="tx-amt tx-amt--neg">-$50.00</div>
           </div>
         </div>
@@ -1172,10 +1083,7 @@
           </div>
         </div>
 
-        <div class="float-stat">
-          <div class="fs-val">0.3s</div>
-          <div class="fs-label">Avg. Transfer</div>
-        </div>
+        <!-- float-stat removed -->
       </div>
     </div>
   </section>
@@ -1186,9 +1094,9 @@
   <section class="signal">
     <div class="wrap">
       <div class="signal-inner">
-        <div class="signal-tag reveal">The Signal</div>
-        <p class="reveal d1">Millions of people across the Americas move money every day — between families, between countries, between lives they're building in two places at once. And every time, they're forced through systems that weren't designed with them in mind. <em>Slow. Expensive. Built for someone else.</em></p>
-        <p class="reveal d2">BOAVIX exists because that's not good enough. We're not fixing what's broken — we're replacing the assumption that <em>access is a privilege of geography.</em></p>
+        <div class="signal-tag reveal">La Senal</div>
+        <p class="reveal d1">Millones de personas en las Americas mueven dinero cada dia — entre familias, entre paises, entre vidas que construyen en dos lugares a la vez. Y cada vez, pasan por sistemas que no fueron disenados para ellos. <em>Lentos. Caros. Hechos para otros.</em></p>
+        <p class="reveal d2">BOAVIX existe porque eso no es suficiente. No estamos reparando lo que esta roto — estamos reemplazando la idea de que <em>el acceso es un privilegio de la geografia.</em></p>
       </div>
     </div>
   </section>
@@ -1199,8 +1107,8 @@
   <section class="pillars">
     <div class="wrap">
       <div class="pillars-head">
-        <p class="pillars-tag reveal">What's Coming</p>
-        <h2 class="pillars-title reveal d1">The infrastructure you deserve.</h2>
+        <p class="pillars-tag reveal">Lo que viene</p>
+        <h2 class="pillars-title reveal d1">La infraestructura que mereces.</h2>
       </div>
       <div class="pillars-grid">
         <div class="p-card reveal">
@@ -1210,8 +1118,8 @@
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3>Built for How People Actually Live</h3>
-          <p>Money doesn't stop at borders. Neither should access. BOAVIX starts where the current system stops.</p>
+          <h3>Hecho para como la gente realmente vive</h3>
+          <p>El dinero no se detiene en las fronteras. El acceso tampoco deberia. BOAVIX empieza donde el sistema actual se queda corto.</p>
         </div>
         <div class="p-card reveal d1">
           <div class="p-step">02</div>
@@ -1220,8 +1128,8 @@
               <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </div>
-          <h3>One Hemisphere. One Experience.</h3>
-          <p>Caracas. Lima. Miami. Toronto. The same standard, wherever you are. No workarounds. No compromises.</p>
+          <h3>Un hemisferio. Una experiencia.</h3>
+          <p>Caracas. Lima. Miami. Toronto. El mismo estandar, estes donde estes. Sin rodeos. Sin compromisos.</p>
         </div>
         <div class="p-card reveal d2">
           <div class="p-step">03</div>
@@ -1230,8 +1138,8 @@
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <h3>A New Layer of Trust</h3>
-          <p>Your financial history should open doors — not close them. We're building a way to make that real.</p>
+          <h3>Una nueva capa de confianza</h3>
+          <p>Tu historial financiero deberia abrir puertas — no cerrarlas. Estamos construyendo la forma de hacerlo realidad.</p>
         </div>
       </div>
     </div>
@@ -1248,38 +1156,15 @@
             <div class="clock-hand-2"></div>
           </div>
         </div>
-        <p class="antic-text reveal d1">The timing matters. We're taking our time to build this right.</p>
-        <h2 class="antic-headline reveal d2">Something is coming.</h2>
-        <p class="antic-body reveal d3">We're building behind closed doors and opening access in waves. The first 1,000 people to join the waitlist will receive <strong>$10 credit</strong> the moment we launch. That number is real, and it won't last.</p>
+        <p class="antic-text reveal d1">El momento importa. Nos estamos tomando el tiempo para construir esto bien.</p>
+        <h2 class="antic-headline reveal d2">Algo esta por llegar.</h2>
+        <p class="antic-body reveal d3">Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara.</p>
         <form class="antic-form reveal d4" id="ctaForm" novalidate>
-          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
-          <button type="submit">Secure My Spot</button>
+          <input type="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" required>
+          <button type="submit">Asegurar Mi Lugar</button>
           <span class="form-msg" id="ctaMsg"></span>
         </form>
-        <p class="antic-micro reveal d5">Drop your email. We'll tell you when the doors open.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true"></div>
-
-  <!-- ═══ NETWORK MAP ═══ -->
-  <section class="netmap">
-    <div class="wrap">
-      <div class="netmap-inner">
-        <div class="map-frame reveal">
-          <div class="map-glow" aria-hidden="true"></div>
-          <img
-            class="map-img"
-            src="americas-network-map.png"
-            alt="Holographic network map of the Americas showing BOAVIX financial connections across North America, Central America, and South America"
-            width="1504"
-            height="816"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <p class="netmap-caption reveal d1">Built across the Americas.</p>
+        <p class="antic-micro reveal d5">Deja tu correo. Te avisamos cuando abramos las puertas.</p>
       </div>
     </div>
   </section>
@@ -1289,22 +1174,12 @@
     <div class="wrap">
       <div class="footer-left">
         <div class="footer-mark">
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="bvxGradF" x1="4" y1="32" x2="32" y2="4" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00F5D4"/>
-                <stop offset="50%" stop-color="#2E10FF"/>
-                <stop offset="100%" stop-color="#E91E63"/>
-              </linearGradient>
-            </defs>
-            <path d="M11 26V10h7c2.8 0 4.8 1.4 4.8 4 0 1.9-1.1 3.2-2.7 3.7 2.1.6 3.4 2.2 3.4 4.3 0 3.2-2.4 4-5.3 4H11zm4.4-9.5h2.5c1.3 0 2.1-.8 2.1-1.9s-.9-1.8-2.1-1.8h-2.5v3.7zm0 6.7h2.9c1.5 0 2.4-.9 2.4-2.1 0-1.3-1-2.1-2.5-2.1h-2.8v4.2z" fill="url(#bvxGradF)"/>
-            <path d="M19.5 6.5l4.5 5h-2.8l-1.7-2-1.7 2H15l4.5-5z" fill="#00F5D4" opacity="0.85"/>
-          </svg>
+          <img src="boavix-logo.png" alt="BOAVIX" style="width:32px;height:32px;border-radius:7px;object-fit:cover;object-position:center 40%;" />
         </div>
         <span class="footer-name">BOAVIX</span>
       </div>
       <div class="footer-mid"><a href="mailto:info@boavix.com">info@boavix.com</a></div>
-      <div class="footer-end">&copy; 2026 BOAVIX. All rights reserved.</div>
+      <div class="footer-end">&copy; 2026 BOAVIX. Todos los derechos reservados.</div>
     </div>
   </footer>
 
@@ -1336,11 +1211,11 @@
       f.addEventListener('submit', e => {
         e.preventDefault();
         const v = i.value.trim();
-        if (!v) { i.classList.add('error'); m.textContent = 'Please enter your email address.'; m.className = 'form-msg show'; return; }
-        if (!isValid(v)) { i.classList.add('error'); m.textContent = 'Please enter a valid email address.'; m.className = 'form-msg show'; return; }
+        if (!v) { i.classList.add('error'); m.textContent = 'Ingresa tu correo electronico.'; m.className = 'form-msg show'; return; }
+        if (!isValid(v)) { i.classList.add('error'); m.textContent = 'Ingresa un correo valido.'; m.className = 'form-msg show'; return; }
         console.log('Waitlist signup:', v);
         i.value = ''; i.classList.remove('error');
-        m.textContent = "You're on the list. We'll be in touch.";
+        m.textContent = "Estas en la lista. Te contactaremos pronto.";
         m.className = 'form-msg show success';
         setTimeout(() => m.classList.remove('show'), 4000);
       });
