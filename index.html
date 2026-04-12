@@ -891,70 +891,106 @@
     }
 
     /* ═══════════════════════════════════════════════
-       GEOGRAPHIC
+       NETWORK MAP
        ═══════════════════════════════════════════════ */
-    .geo {
-      padding: clamp(56px, 8vh, 96px) 0;
+    .netmap {
+      padding: var(--section-pad) 0;
       position: relative; z-index: 1; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg), rgba(15,23,42,0.25), var(--bg));
+      background: linear-gradient(180deg, var(--bg), rgba(15,23,42,0.2), var(--bg));
     }
-    .geo-inner { text-align: center; position: relative; }
-    .geo-tag {
-      font-size: 10.5px; font-weight: 600;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    .geo-nodes {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 0;
-    }
-    .geo-node {
+    .netmap-inner {
       display: flex; flex-direction: column;
-      align-items: center; gap: 9px;
-      padding: 18px 28px;
-      position: relative;
+      align-items: center; position: relative;
     }
-    .geo-node::before {
-      content: '';
+
+    /* Map container */
+    .map-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 0.72;
+      margin: 0 auto 36px;
+    }
+
+    /* Ambient glow behind map */
+    .map-glow {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 40%; left: 50%;
       transform: translate(-50%,-50%);
-      width: 70px; height: 70px;
+      width: 360px; height: 360px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,245,212,0.025) 0%, transparent 70%);
+      background: radial-gradient(circle,
+        rgba(0,245,212,0.06) 0%,
+        rgba(46,16,255,0.04) 40%,
+        transparent 70%);
+      filter: blur(60px);
       pointer-events: none;
+      animation: mapGlow 8s ease-in-out infinite alternate;
     }
-    .geo-pip {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--pulse-teal);
-      box-shadow: 0 0 8px rgba(0,245,212,0.3);
-      position: relative;
+    @keyframes mapGlow {
+      0% { opacity: 0.5; transform: translate(-50%,-50%) scale(0.9); }
+      100% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
     }
-    .geo-pip::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,245,212,0.1);
-      animation: ping 3.5s ease-out infinite;
+
+    /* SVG map styling */
+    .map-svg {
+      width: 100%; height: 100%;
+      position: relative; z-index: 1;
     }
-    @keyframes ping {
-      0% { transform: translate(-50%,-50%) scale(1); opacity: 0.45; }
-      100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+
+    /* Connection lines */
+    .map-conn {
+      stroke-width: 1;
+      fill: none;
+      stroke-dasharray: 4 6;
+      animation: connDash 20s linear infinite;
     }
-    .geo-node span:last-child {
-      font-size: 13.5px; font-weight: 600;
-      color: var(--text-primary); letter-spacing: 0.01em;
+    @keyframes connDash {
+      to { stroke-dashoffset: -200; }
     }
-    .geo-line {
-      width: 36px; height: 1px;
-      background: linear-gradient(90deg, rgba(0,245,212,0.12), rgba(0,245,212,0.02));
-      align-self: center;
+
+    /* Traveling light on connections */
+    .map-light {
+      r: 2;
+      fill: var(--pulse-teal);
+      filter: drop-shadow(0 0 4px rgba(0,245,212,0.6));
+    }
+
+    /* Node pulse rings */
+    .map-pulse {
+      fill: none;
+      stroke: var(--pulse-teal);
+      stroke-width: 0.5;
+      animation: nodePulse 3.5s ease-out infinite;
+      transform-origin: center;
+    }
+    @keyframes nodePulse {
+      0% { r: 4; opacity: 0.5; }
+      100% { r: 14; opacity: 0; }
+    }
+    .map-pulse--delay1 { animation-delay: -1.2s; }
+    .map-pulse--delay2 { animation-delay: -2.4s; }
+
+    /* Node dots */
+    .map-node {
+      fill: var(--pulse-teal);
+      filter: drop-shadow(0 0 3px rgba(0,245,212,0.5));
+    }
+    .map-node--blue {
+      fill: var(--accent-cyan);
+      filter: drop-shadow(0 0 3px rgba(0,212,255,0.5));
+    }
+    .map-node--mag {
+      fill: var(--subtle-magenta);
+      filter: drop-shadow(0 0 3px rgba(233,30,99,0.4));
+    }
+
+    /* Caption */
+    .netmap-caption {
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      text-align: center;
     }
 
     /* ═══════════════════════════════════════════════
@@ -1004,8 +1040,7 @@
 
     @media (max-width: 768px) {
       .pillars-grid { grid-template-columns: 1fr; gap: 14px; }
-      .geo-nodes { flex-direction: column; gap: 2px; }
-      .geo-line { width: 1px; height: 18px; background: linear-gradient(180deg, rgba(0,245,212,0.12), rgba(0,245,212,0.02)); }
+      .map-wrap { max-width: 380px; }
     }
 
     @media (max-width: 540px) {
@@ -1236,20 +1271,105 @@
 
   <div class="divider" aria-hidden="true"></div>
 
-  <!-- ═══ GEOGRAPHIC ═══ -->
-  <section class="geo">
+  <!-- ═══ NETWORK MAP ═══ -->
+  <section class="netmap">
     <div class="wrap">
-      <div class="geo-inner">
-        <p class="geo-tag reveal">Building Across</p>
-        <div class="geo-nodes reveal d1">
-          <div class="geo-node"><div class="geo-pip"></div><span>Venezuela</span></div>
-          <div class="geo-line" aria-hidden="true"></div>
-          <div class="geo-node"><div class="geo-pip"></div><span>Latin America</span></div>
-          <div class="geo-line" aria-hidden="true"></div>
-          <div class="geo-node"><div class="geo-pip"></div><span>United States</span></div>
-          <div class="geo-line" aria-hidden="true"></div>
-          <div class="geo-node"><div class="geo-pip"></div><span>Canada</span></div>
+      <div class="netmap-inner">
+        <div class="map-wrap reveal">
+          <div class="map-glow" aria-hidden="true"></div>
+          <svg class="map-svg" viewBox="0 0 400 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="connG1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#2E10FF" stop-opacity="0.12"/>
+              </linearGradient>
+              <linearGradient id="connG2" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2E10FF" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#E91E63" stop-opacity="0.1"/>
+              </linearGradient>
+              <linearGradient id="connG3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#E91E63" stop-opacity="0.15"/>
+              </linearGradient>
+              <linearGradient id="landG" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.04"/>
+                <stop offset="100%" stop-color="#2E10FF" stop-opacity="0.03"/>
+              </linearGradient>
+              <filter id="landBlur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.6"/>
+              </filter>
+            </defs>
+
+            <!-- ── Continent outlines (simplified, abstract) ── -->
+            <!-- North America -->
+            <path d="M120 45 L160 38 L195 32 L220 40 L250 48 L265 58 L272 72 L268 88 L258 95 L262 108 L270 118 L275 132 L268 142 L255 148 L248 158 L240 165 L230 172 L222 180 L218 190 L210 198 L200 202 L195 210 L188 218 L178 222 L170 228 L165 238 L158 245 L148 248 L140 252 L135 248 L132 240 L128 232 L118 225 L110 218 L105 208 L102 198 L98 188 L95 178 L90 168 L85 155 L82 142 L80 128 L78 115 L80 100 L84 88 L90 76 L98 65 L108 55 L120 45Z"
+              fill="url(#landG)" stroke="rgba(0,245,212,0.06)" stroke-width="0.5" filter="url(#landBlur)"/>
+
+            <!-- Central America bridge -->
+            <path d="M158 245 L155 255 L152 262 L148 270 L145 278 L143 285 L142 292 L145 298 L150 302 L155 308 L158 315 L160 322"
+              fill="none" stroke="rgba(0,245,212,0.05)" stroke-width="8" stroke-linecap="round"/>
+
+            <!-- South America -->
+            <path d="M160 322 L172 318 L185 315 L198 318 L212 325 L225 335 L232 348 L235 362 L232 378 L228 392 L222 405 L215 418 L210 432 L205 445 L198 455 L192 465 L185 472 L178 478 L172 485 L168 492 L165 498 L170 505 L175 510 L178 515 L175 520 L168 518 L160 512 L155 505 L148 498 L142 488 L138 478 L135 465 L132 452 L130 438 L128 422 L128 408 L130 395 L135 382 L140 370 L145 358 L148 345 L152 332 L158 322 L160 322Z"
+              fill="url(#landG)" stroke="rgba(0,245,212,0.06)" stroke-width="0.5" filter="url(#landBlur)"/>
+
+            <!-- ── Connection lines ── -->
+            <!-- Toronto → Miami -->
+            <path class="map-conn" d="M175 82 C 200 130, 220 160, 208 200" stroke="url(#connG1)"/>
+            <!-- Miami → Caracas -->
+            <path class="map-conn" d="M208 200 C 225 240, 240 280, 218 330" stroke="url(#connG2)" style="animation-delay:-5s"/>
+            <!-- Caracas → Lima -->
+            <path class="map-conn" d="M218 330 C 195 370, 170 400, 148 420" stroke="url(#connG3)" style="animation-delay:-10s"/>
+            <!-- Toronto → Caracas (long arc) -->
+            <path class="map-conn" d="M175 82 C 290 140, 300 260, 218 330" stroke="url(#connG1)" style="animation-delay:-7s; opacity: 0.5"/>
+            <!-- Miami → Lima -->
+            <path class="map-conn" d="M208 200 C 180 290, 160 360, 148 420" stroke="url(#connG2)" style="animation-delay:-3s; opacity: 0.4"/>
+
+            <!-- ── Traveling lights ── -->
+            <circle class="map-light" r="2">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M175 82 C 200 130, 220 160, 208 200"/>
+            </circle>
+            <circle class="map-light" r="1.5" style="filter: drop-shadow(0 0 3px rgba(46,16,255,0.6)); fill: #00D4FF;">
+              <animateMotion dur="7s" repeatCount="indefinite" path="M208 200 C 225 240, 240 280, 218 330" begin="-2s"/>
+            </circle>
+            <circle class="map-light" r="1.5" style="filter: drop-shadow(0 0 3px rgba(233,30,99,0.5)); fill: #E91E63;">
+              <animateMotion dur="8s" repeatCount="indefinite" path="M218 330 C 195 370, 170 400, 148 420" begin="-4s"/>
+            </circle>
+
+            <!-- ── Node: Toronto ── -->
+            <circle class="map-pulse" cx="175" cy="82" r="4"/>
+            <circle class="map-pulse map-pulse--delay1" cx="175" cy="82" r="4"/>
+            <circle class="map-node" cx="175" cy="82" r="3.5"/>
+
+            <!-- ── Node: Miami ── -->
+            <circle class="map-pulse map-pulse--delay2" cx="208" cy="200" r="4"/>
+            <circle class="map-pulse" cx="208" cy="200" r="4" style="animation-delay:-0.8s"/>
+            <circle class="map-node--blue" cx="208" cy="200" r="3.5"/>
+
+            <!-- ── Node: Caracas ── -->
+            <circle class="map-pulse" cx="218" cy="330" r="4" style="animation-delay:-0.5s"/>
+            <circle class="map-pulse map-pulse--delay1" cx="218" cy="330" r="4"/>
+            <circle class="map-node" cx="218" cy="330" r="4"/>
+
+            <!-- ── Node: Lima ── -->
+            <circle class="map-pulse map-pulse--delay2" cx="148" cy="420" r="4" style="animation-delay:-1.8s"/>
+            <circle class="map-pulse" cx="148" cy="420" r="4" style="animation-delay:-0.3s"/>
+            <circle class="map-node--mag" cx="148" cy="420" r="3"/>
+
+            <!-- ── Secondary nodes (smaller, subtler) ── -->
+            <!-- New York area -->
+            <circle cx="198" cy="108" r="1.8" fill="rgba(0,245,212,0.3)" filter="drop-shadow(0 0 2px rgba(0,245,212,0.3))"/>
+            <!-- Mexico City area -->
+            <circle cx="152" cy="238" r="1.8" fill="rgba(0,212,255,0.3)" filter="drop-shadow(0 0 2px rgba(0,212,255,0.3))"/>
+            <!-- Bogota area -->
+            <circle cx="185" cy="315" r="1.8" fill="rgba(0,245,212,0.25)" filter="drop-shadow(0 0 2px rgba(0,245,212,0.2))"/>
+            <!-- Sao Paulo area -->
+            <circle cx="200" cy="432" r="1.8" fill="rgba(46,16,255,0.35)" filter="drop-shadow(0 0 2px rgba(46,16,255,0.3))"/>
+            <!-- Buenos Aires area -->
+            <circle cx="172" cy="478" r="1.5" fill="rgba(233,30,99,0.25)" filter="drop-shadow(0 0 2px rgba(233,30,99,0.2))"/>
+          </svg>
         </div>
+        <p class="netmap-caption reveal d1">Built across the Americas.</p>
       </div>
     </div>
   </section>
