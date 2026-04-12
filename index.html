@@ -119,21 +119,10 @@
 
     .nav-logo { display: flex; align-items: center; gap: 9px; }
     .nav-mark {
-      width: 32px; height: 32px;
-      border-radius: 7px;
-      overflow: hidden;
       flex-shrink: 0;
-      position: relative;
-      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
     }
-    .nav-mark img {
-      width: 178%;
-      height: 178%;
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
+    .nav-mark svg { width: 30px; height: 30px; }
     .nav-wordmark {
       font-size: 17px; font-weight: 800;
       letter-spacing: 0.14em;
@@ -980,18 +969,11 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 14px;
     }
-    .footer-left { display: flex; align-items: center; gap: 7px; }
+    .footer-left { display: flex; align-items: center; gap: 8px; }
     .footer-mark {
-      width: 22px; height: 22px;
-      border-radius: 5px;
-      overflow: hidden; position: relative;
-      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
     }
-    .footer-mark img {
-      width: 185%; height: 185%;
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-    }
+    .footer-mark svg { width: 24px; height: 24px; }
     .footer-name {
       font-size: 13px; font-weight: 700;
       letter-spacing: 0.08em;
@@ -1062,7 +1044,20 @@
   <nav class="nav" id="nav">
     <div class="wrap">
       <a href="/" class="nav-logo" aria-label="BOAVIX Home">
-        <div class="nav-mark"><img src="Gemini_Generated_Image_z3ubc1z3ubc1z3ub.png" alt="BOAVIX"></div>
+        <div class="nav-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="bvxGrad" x1="4" y1="32" x2="32" y2="4" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00F5D4"/>
+                <stop offset="50%" stop-color="#2E10FF"/>
+                <stop offset="100%" stop-color="#E91E63"/>
+              </linearGradient>
+            </defs>
+            <rect x="0.5" y="0.5" width="35" height="35" rx="9" fill="#0F172A" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <path d="M11 26V10h7c2.8 0 4.8 1.4 4.8 4 0 1.9-1.1 3.2-2.7 3.7 2.1.6 3.4 2.2 3.4 4.3 0 3.2-2.4 4-5.3 4H11zm4.4-9.5h2.5c1.3 0 2.1-.8 2.1-1.9s-.9-1.8-2.1-1.8h-2.5v3.7zm0 6.7h2.9c1.5 0 2.4-.9 2.4-2.1 0-1.3-1-2.1-2.5-2.1h-2.8v4.2z" fill="url(#bvxGrad)"/>
+            <path d="M19.5 6.5l4.5 5h-2.8l-1.7-2-1.7 2H15l4.5-5z" fill="#00F5D4" opacity="0.85"/>
+          </svg>
+        </div>
         <span class="nav-wordmark">BOAVIX</span>
       </a>
       <a href="#waitlist" class="nav-cta">Request Access</a>
@@ -1263,7 +1258,19 @@
   <footer class="footer">
     <div class="wrap">
       <div class="footer-left">
-        <div class="footer-mark"><img src="Gemini_Generated_Image_z3ubc1z3ubc1z3ub.png" alt="BOAVIX"></div>
+        <div class="footer-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="bvxGradF" x1="4" y1="32" x2="32" y2="4" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00F5D4"/>
+                <stop offset="50%" stop-color="#2E10FF"/>
+                <stop offset="100%" stop-color="#E91E63"/>
+              </linearGradient>
+            </defs>
+            <path d="M11 26V10h7c2.8 0 4.8 1.4 4.8 4 0 1.9-1.1 3.2-2.7 3.7 2.1.6 3.4 2.2 3.4 4.3 0 3.2-2.4 4-5.3 4H11zm4.4-9.5h2.5c1.3 0 2.1-.8 2.1-1.9s-.9-1.8-2.1-1.8h-2.5v3.7zm0 6.7h2.9c1.5 0 2.4-.9 2.4-2.1 0-1.3-1-2.1-2.5-2.1h-2.8v4.2z" fill="url(#bvxGradF)"/>
+            <path d="M19.5 6.5l4.5 5h-2.8l-1.7-2-1.7 2H15l4.5-5z" fill="#00F5D4" opacity="0.85"/>
+          </svg>
+        </div>
         <span class="footer-name">BOAVIX</span>
       </div>
       <div class="footer-mid"><a href="mailto:info@boavix.com">info@boavix.com</a></div>
