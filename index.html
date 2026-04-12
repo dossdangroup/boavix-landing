@@ -970,9 +970,9 @@
       animation: shimmer 8s ease-in-out infinite alternate;
     }
     @keyframes shimmer {
-      0% { stroke-opacity: 0.08; }
-      50% { stroke-opacity: 0.16; }
-      100% { stroke-opacity: 0.08; }
+      0% { stroke-opacity: 0.35; }
+      50% { stroke-opacity: 0.55; }
+      100% { stroke-opacity: 0.35; }
     }
 
     /* Node core */
@@ -1296,14 +1296,14 @@
             <defs>
               <!-- Continent stroke gradient -->
               <linearGradient id="cStroke" x1="0%" y1="0%" x2="50%" y2="100%">
-                <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.14"/>
-                <stop offset="50%" stop-color="#4A6CF7" stop-opacity="0.1"/>
-                <stop offset="100%" stop-color="#7B3FE4" stop-opacity="0.06"/>
+                <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.6"/>
+                <stop offset="50%" stop-color="#4A6CF7" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#7B3FE4" stop-opacity="0.35"/>
               </linearGradient>
               <!-- Continent fill -->
               <linearGradient id="cFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.025"/>
-                <stop offset="100%" stop-color="#4A6CF7" stop-opacity="0.015"/>
+                <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#4A6CF7" stop-opacity="0.05"/>
               </linearGradient>
               <!-- Connection gradients -->
               <linearGradient id="aG1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1327,165 +1327,161 @@
 
             <!-- ═══════ LAYER 1 — CONTINENT OUTLINES ═══════ -->
 
-            <!-- NORTH AMERICA (Alaska → Canada → US → Gulf → Florida → East Coast) -->
+            <!-- NORTH AMERICA — recognizable outline with Alaska, Canada, Great Lakes,
+                 US East/West coasts, Florida peninsula, Gulf of Mexico, Mexico -->
             <path class="land-outline" d="
-              M 95,52 C 88,48 78,50 72,55 C 65,62 60,58 55,62
-              C 50,68 52,75 58,78 C 64,80 62,86 68,90
-              C 75,92 80,88 88,92 C 95,96 100,92 108,88
-              C 115,84 122,80 130,78 C 138,76 145,72 152,68
-              C 160,64 168,62 175,60 C 182,58 190,55 198,54
-              C 206,53 214,54 222,56 C 230,58 238,62 245,67
-              C 250,72 258,78 264,85 C 270,92 275,100 278,108
-              C 282,118 284,126 286,135 C 288,145 289,152 288,160
-              C 287,168 285,175 282,182 C 278,190 273,196 268,201
-              C 264,205 260,210 258,215 C 256,222 258,228 262,234
-              C 265,238 270,242 274,248 C 278,254 280,260 282,268
-              C 283,275 282,282 278,288 C 274,294 270,298 265,300
-              C 260,302 255,303 250,304 C 244,305 238,308 232,312
-              C 226,316 220,321 215,326 C 212,330 210,334 210,339
-              C 210,344 212,348 216,352 C 220,356 222,360 220,365
-              C 218,370 214,372 210,370 C 206,368 202,364 198,360
-              C 195,356 190,354 185,355 C 180,356 178,360 175,362
-              C 172,364 168,364 165,362 C 160,358 156,354 152,350
-              C 148,346 144,342 140,338 C 136,335 130,332 124,330
-              C 118,328 112,326 106,325 C 100,324 94,326 90,330
-              C 86,334 82,340 80,345 C 78,350 78,356 82,360
-              C 86,364 90,365 96,364 C 100,363 104,362 108,365
-              C 112,370 110,376 106,380 C 100,384 95,382 90,378
-              C 85,374 80,372 76,375 C 72,378 70,383 70,388
-              C 70,394 73,398 78,400 C 84,402 88,405 88,410
-              C 88,416 84,420 80,418 C 76,416 72,412 68,414
-              C 64,416 62,422 65,426 C 68,430 74,432 78,436
+              M 78,38 L 68,42 L 58,50 L 52,58 L 55,65 L 62,68 L 58,75 L 50,78
+              L 48,85 L 55,90 L 65,88 L 75,82 L 85,78 L 95,74 L 108,70 L 120,65
+              L 135,60 L 150,55 L 168,50 L 185,48 L 200,47 L 218,48 L 235,52
+              L 250,58 L 262,66 L 272,76 L 280,88 L 286,100 L 290,112 L 292,125
+              L 293,138 L 292,148 L 290,156 L 286,164
+              L 290,168 L 296,164 L 302,158 L 308,155 L 312,160 L 310,168 L 306,175
+              L 300,178 L 295,172 L 288,170
+              L 284,176 L 280,184 L 275,192 L 270,198
+              L 266,204 L 268,210 L 274,215 L 280,220 L 286,228 L 290,236
+              L 292,245 L 290,255 L 284,262 L 278,265
+              L 278,272 L 282,280 L 286,290 L 288,300
+              L 284,306 L 278,310 L 272,308 L 268,302 L 266,296
+              L 260,298 L 254,304 L 248,310
+              L 240,315 L 234,320 L 228,328 L 224,335
+              L 218,340 L 210,345 L 202,348 L 196,352 L 190,358
+              L 184,364 L 178,368 L 172,365 L 166,360
+              L 160,356 L 155,350 L 148,345 L 140,342
+              L 132,340 L 124,342 L 118,348 L 112,358
+              L 108,370 L 112,378 L 120,382 L 128,380
+              L 136,375 L 140,370 L 144,368 L 148,372
+              L 144,380 L 138,386 L 130,388 L 122,390
+              L 115,394 L 110,400 L 108,408
             "
-              fill="none" stroke="url(#cStroke)" stroke-width="0.8" stroke-linecap="round"/>
+              fill="none" stroke="url(#cStroke)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 
-            <!-- North America fill (same path, closed, subtle) -->
+            <!-- North America fill -->
             <path d="
-              M 95,52 C 88,48 78,50 72,55 C 65,62 60,58 55,62 C 50,68 52,75 58,78 C 64,80 62,86 68,90
-              C 75,92 80,88 88,92 C 95,96 100,92 108,88 C 115,84 122,80 130,78 C 138,76 145,72 152,68
-              C 160,64 168,62 175,60 C 182,58 190,55 198,54 C 206,53 214,54 222,56 C 230,58 238,62 245,67
-              C 250,72 258,78 264,85 C 270,92 275,100 278,108 C 282,118 284,126 286,135 C 288,145 289,152 288,160
-              C 287,168 285,175 282,182 C 278,190 273,196 268,201 C 264,205 260,210 258,215 C 256,222 258,228 262,234
-              C 265,238 270,242 274,248 C 278,254 280,260 282,268 C 283,275 282,282 278,288 C 274,294 270,298 265,300
-              C 260,302 255,303 250,304 C 244,305 238,308 232,312 C 226,316 220,321 215,326 C 212,330 210,334 210,339
-              C 210,344 212,348 216,352 C 220,356 222,360 220,365 C 218,370 214,372 210,370 C 206,368 202,364 198,360
-              C 195,356 190,354 185,355 C 180,356 178,360 175,362 C 172,364 168,364 165,362 C 160,358 156,354 152,350
-              C 148,346 144,342 140,338 C 136,335 130,332 124,330 C 118,328 112,326 106,325 C 100,324 94,326 90,330
-              C 86,334 82,340 80,345 C 78,350 78,356 82,360 C 86,364 90,365 96,364 C 100,363 104,362 108,365
-              C 112,370 110,376 106,380 C 100,384 95,382 90,378 C 85,374 80,372 76,375 C 72,378 70,383 70,388
-              C 70,394 73,398 78,400 C 84,402 88,405 88,410 C 88,416 84,420 80,418 C 76,416 72,412 68,414
-              C 64,416 62,422 65,426 C 68,430 74,432 78,436
-              L 80,440 L 70,430 L 60,410 L 55,380 L 58,340 L 62,300 L 60,260 L 55,220 L 52,180
-              L 50,140 L 52,110 L 58,80 L 68,65 Z
-            " fill="url(#cFill)" opacity="0.6"/>
+              M 78,38 L 68,42 L 58,50 L 52,58 L 55,65 L 62,68 L 58,75 L 50,78
+              L 48,85 L 55,90 L 65,88 L 75,82 L 85,78 L 95,74 L 108,70 L 120,65
+              L 135,60 L 150,55 L 168,50 L 185,48 L 200,47 L 218,48 L 235,52
+              L 250,58 L 262,66 L 272,76 L 280,88 L 286,100 L 290,112 L 292,125
+              L 293,138 L 292,148 L 290,156 L 286,164
+              L 290,168 L 296,164 L 302,158 L 308,155 L 312,160 L 310,168 L 306,175
+              L 300,178 L 295,172 L 288,170
+              L 284,176 L 280,184 L 275,192 L 270,198
+              L 266,204 L 268,210 L 274,215 L 280,220 L 286,228 L 290,236
+              L 292,245 L 290,255 L 284,262 L 278,265
+              L 278,272 L 282,280 L 286,290 L 288,300
+              L 284,306 L 278,310 L 272,308 L 268,302 L 266,296
+              L 260,298 L 254,304 L 248,310
+              L 240,315 L 234,320 L 228,328 L 224,335
+              L 218,340 L 210,345 L 202,348 L 196,352 L 190,358
+              L 184,364 L 178,368 L 172,365 L 166,360
+              L 160,356 L 155,350 L 148,345 L 140,342
+              L 132,340 L 124,342 L 118,348 L 112,358
+              L 108,370 L 112,378 L 120,382 L 128,380
+              L 136,375 L 140,370 L 144,368 L 148,372
+              L 144,380 L 138,386 L 130,388 L 122,390
+              L 115,394 L 110,400 L 108,408
+              L 100,400 L 90,380 L 78,340 L 70,300 L 65,260 L 60,220
+              L 58,180 L 56,140 L 58,100 L 62,70 L 68,50 Z
+            " fill="url(#cFill)" opacity="0.85"/>
 
-            <!-- CENTRAL AMERICA (isthmus) -->
+            <!-- CENTRAL AMERICA isthmus — narrow land bridge -->
             <path class="land-outline" d="
-              M 198,360 C 195,370 192,378 190,386
-              C 188,394 186,400 185,408
-              C 184,415 186,420 190,425
-              C 194,430 196,435 194,440
-              C 192,445 190,450 192,455
+              M 108,408 L 112,415 L 118,420 L 122,428 L 126,435
+              L 128,442 L 126,448 L 122,454 L 120,460
+              L 124,465 L 130,468 L 136,472 L 140,478
+              L 144,485 L 148,490 L 155,494
             "
-              fill="none" stroke="url(#cStroke)" stroke-width="0.7" stroke-linecap="round"/>
+              fill="none" stroke="url(#cStroke)" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round"/>
 
-            <!-- SOUTH AMERICA -->
+            <!-- SOUTH AMERICA — wide northern coast, Brazil eastern bulge, tapered southern cone -->
             <path class="land-outline" d="
-              M 192,455 C 200,452 210,450 220,452
-              C 232,454 244,460 255,468
-              C 268,478 278,490 285,504
-              C 292,518 296,534 298,548
-              C 300,562 298,578 294,592
-              C 290,606 284,618 276,630
-              C 268,642 260,652 252,660
-              C 244,668 236,675 228,682
-              C 220,688 212,694 205,700
-              C 200,704 196,706 192,705
-              C 186,702 182,696 180,688
-              C 178,678 174,668 168,660
-              C 162,652 155,646 148,640
-              C 140,635 134,628 130,618
-              C 126,608 124,596 124,584
-              C 124,570 126,556 130,542
-              C 134,528 138,516 144,505
-              C 150,494 156,485 162,478
-              C 168,470 175,464 182,460
-              C 188,456 192,455 192,455 Z
+              M 155,494 L 168,488 L 185,484 L 205,482 L 225,484
+              L 245,488 L 268,494 L 285,498 L 300,496 L 310,492
+              L 318,500 L 325,510 L 330,522 L 332,536
+              L 330,550 L 325,562 L 318,572 L 308,580
+              L 296,588 L 282,596 L 270,604 L 258,612
+              L 248,622 L 240,632 L 234,644 L 228,656
+              L 222,668 L 216,678 L 210,686 L 204,692
+              L 198,696 L 192,694
+              L 188,686 L 186,674 L 184,662 L 180,652
+              L 174,644 L 166,638 L 156,634 L 146,628
+              L 138,618 L 132,606 L 128,592 L 126,576
+              L 126,560 L 128,544 L 132,530 L 138,518
+              L 145,508 L 152,500 L 155,494 Z
             "
-              fill="url(#cFill)" stroke="url(#cStroke)" stroke-width="0.8" stroke-linecap="round" opacity="0.7"/>
+              fill="url(#cFill)" stroke="url(#cStroke)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
 
             <!-- ═══════ LAYER 2 — CONNECTION ARCS ═══════ -->
 
             <!-- Toronto → Miami -->
-            <path class="arc" d="M 222,115 C 255,180, 270,240, 274,280" stroke="url(#aG1)"/>
+            <path class="arc" d="M 230,100 C 265,170, 280,230, 285,290" stroke="url(#aG1)"/>
             <!-- Toronto → New York -->
-            <path class="arc" d="M 222,115 C 240,130, 258,145, 270,168" stroke="url(#aG1)" style="animation-delay:-4s; opacity:0.5"/>
+            <path class="arc" d="M 230,100 C 250,120, 275,140, 295,170" stroke="url(#aG1)" style="animation-delay:-4s; opacity:0.5"/>
             <!-- Miami → Caracas -->
-            <path class="arc" d="M 274,280 C 290,340, 280,400, 240,460" stroke="url(#aG2)" style="animation-delay:-6s"/>
+            <path class="arc" d="M 285,290 C 300,360, 280,430, 230,498" stroke="url(#aG2)" style="animation-delay:-6s"/>
             <!-- Caracas → Lima -->
-            <path class="arc" d="M 240,460 C 210,500, 180,540, 148,565" stroke="url(#aG3)" style="animation-delay:-9s"/>
+            <path class="arc" d="M 230,498 C 200,520, 170,540, 140,560" stroke="url(#aG3)" style="animation-delay:-9s"/>
             <!-- Toronto → Caracas (long arc) -->
-            <path class="arc" d="M 222,115 C 340,220, 330,380, 240,460" stroke="url(#aG2)" style="animation-delay:-3s; opacity:0.35"/>
+            <path class="arc" d="M 230,100 C 350,230, 340,400, 230,498" stroke="url(#aG2)" style="animation-delay:-3s; opacity:0.35"/>
             <!-- Miami → Lima -->
-            <path class="arc" d="M 274,280 C 240,380, 200,480, 148,565" stroke="url(#aG3)" style="animation-delay:-12s; opacity:0.3"/>
+            <path class="arc" d="M 285,290 C 250,390, 200,480, 140,560" stroke="url(#aG3)" style="animation-delay:-12s; opacity:0.3"/>
 
             <!-- ═══════ LAYER 3 — TRAVELING LIGHT PARTICLES ═══════ -->
 
             <!-- Toronto → Miami -->
             <circle class="tl" r="2" fill="#00F0FF">
-              <animateMotion dur="8s" repeatCount="indefinite" path="M 222,115 C 255,180, 270,240, 274,280"/>
+              <animateMotion dur="8s" repeatCount="indefinite" path="M 230,100 C 265,170, 280,230, 285,290"/>
             </circle>
             <!-- Miami → Caracas -->
             <circle class="tl" r="1.8" fill="#4A6CF7" style="filter:drop-shadow(0 0 5px rgba(74,108,247,0.7))">
-              <animateMotion dur="9s" repeatCount="indefinite" path="M 274,280 C 290,340, 280,400, 240,460" begin="-3s"/>
+              <animateMotion dur="9s" repeatCount="indefinite" path="M 285,290 C 300,360, 280,430, 230,498" begin="-3s"/>
             </circle>
             <!-- Caracas → Lima -->
             <circle class="tl" r="1.8" fill="#7B3FE4" style="filter:drop-shadow(0 0 5px rgba(123,63,228,0.7))">
-              <animateMotion dur="10s" repeatCount="indefinite" path="M 240,460 C 210,500, 180,540, 148,565" begin="-5s"/>
+              <animateMotion dur="10s" repeatCount="indefinite" path="M 230,498 C 200,520, 170,540, 140,560" begin="-5s"/>
             </circle>
             <!-- Long arc Toronto → Caracas -->
             <circle class="tl" r="1.5" fill="#00F0FF" style="opacity:0.6">
-              <animateMotion dur="12s" repeatCount="indefinite" path="M 222,115 C 340,220, 330,380, 240,460" begin="-2s"/>
+              <animateMotion dur="12s" repeatCount="indefinite" path="M 230,100 C 350,230, 340,400, 230,498" begin="-2s"/>
             </circle>
 
             <!-- ═══════ LAYER 4 — NODES ═══════ -->
 
-            <!-- NODE: Toronto (222, 115) -->
-            <circle class="npr" cx="222" cy="115" r="4" stroke="#00F0FF"/>
-            <circle class="npr" cx="222" cy="115" r="4" stroke="#00F0FF" style="animation-delay:-1.1s"/>
-            <circle class="nd" cx="222" cy="115" r="3.5" fill="#00F0FF"/>
+            <!-- NODE: Toronto (230, 100) -->
+            <circle class="npr" cx="230" cy="100" r="4" stroke="#00F0FF"/>
+            <circle class="npr" cx="230" cy="100" r="4" stroke="#00F0FF" style="animation-delay:-1.1s"/>
+            <circle class="nd" cx="230" cy="100" r="3.5" fill="#00F0FF"/>
 
-            <!-- NODE: New York (270, 168) -->
-            <circle class="npr" cx="270" cy="168" r="4" stroke="#4A6CF7" style="animation-delay:-0.6s"/>
-            <circle class="npr" cx="270" cy="168" r="4" stroke="#4A6CF7" style="animation-delay:-1.8s"/>
-            <circle class="nd--v" cx="270" cy="168" r="3" fill="#4A6CF7"/>
+            <!-- NODE: New York (295, 170) -->
+            <circle class="npr" cx="295" cy="170" r="4" stroke="#4A6CF7" style="animation-delay:-0.6s"/>
+            <circle class="npr" cx="295" cy="170" r="4" stroke="#4A6CF7" style="animation-delay:-1.8s"/>
+            <circle class="nd--v" cx="295" cy="170" r="3" fill="#4A6CF7"/>
 
-            <!-- NODE: Miami (274, 280) -->
-            <circle class="npr" cx="274" cy="280" r="4" stroke="#00F0FF" style="animation-delay:-2s"/>
-            <circle class="npr" cx="274" cy="280" r="4" stroke="#00F0FF" style="animation-delay:-0.7s"/>
-            <circle class="nd" cx="274" cy="280" r="3.5" fill="#00F0FF"/>
+            <!-- NODE: Miami (285, 290) -->
+            <circle class="npr" cx="285" cy="290" r="4" stroke="#00F0FF" style="animation-delay:-2s"/>
+            <circle class="npr" cx="285" cy="290" r="4" stroke="#00F0FF" style="animation-delay:-0.7s"/>
+            <circle class="nd" cx="285" cy="290" r="3.5" fill="#00F0FF"/>
 
-            <!-- NODE: Caracas (240, 460) -->
-            <circle class="npr" cx="240" cy="460" r="5" stroke="#4A6CF7" style="animation-delay:-0.3s"/>
-            <circle class="npr" cx="240" cy="460" r="5" stroke="#4A6CF7" style="animation-delay:-1.5s"/>
-            <circle class="nd--v" cx="240" cy="460" r="4" fill="#4A6CF7" filter="url(#glow)"/>
+            <!-- NODE: Caracas (230, 498) -->
+            <circle class="npr" cx="230" cy="498" r="5" stroke="#4A6CF7" style="animation-delay:-0.3s"/>
+            <circle class="npr" cx="230" cy="498" r="5" stroke="#4A6CF7" style="animation-delay:-1.5s"/>
+            <circle class="nd--v" cx="230" cy="498" r="4" fill="#4A6CF7" filter="url(#glow)"/>
 
-            <!-- NODE: Lima (148, 565) -->
-            <circle class="npr" cx="148" cy="565" r="4" stroke="#7B3FE4" style="animation-delay:-1.8s"/>
-            <circle class="npr" cx="148" cy="565" r="4" stroke="#7B3FE4" style="animation-delay:-0.5s"/>
-            <circle class="nd--m" cx="148" cy="565" r="3" fill="#7B3FE4"/>
+            <!-- NODE: Lima (140, 560) -->
+            <circle class="npr" cx="140" cy="560" r="4" stroke="#7B3FE4" style="animation-delay:-1.8s"/>
+            <circle class="npr" cx="140" cy="560" r="4" stroke="#7B3FE4" style="animation-delay:-0.5s"/>
+            <circle class="nd--m" cx="140" cy="560" r="3" fill="#7B3FE4"/>
 
             <!-- SECONDARY NODES (subtle) -->
             <!-- Mexico City -->
-            <circle cx="165" cy="355" r="2" fill="#4A6CF7" opacity="0.3" filter="url(#glowSoft)"/>
+            <circle cx="140" cy="380" r="2" fill="#4A6CF7" opacity="0.35" filter="url(#glowSoft)"/>
             <!-- Bogota -->
-            <circle cx="215" cy="475" r="2" fill="#00F0FF" opacity="0.25" filter="url(#glowSoft)"/>
+            <circle cx="170" cy="510" r="2" fill="#00F0FF" opacity="0.3" filter="url(#glowSoft)"/>
             <!-- Sao Paulo -->
-            <circle cx="265" cy="580" r="2" fill="#4A6CF7" opacity="0.25" filter="url(#glowSoft)"/>
+            <circle cx="270" cy="590" r="2" fill="#4A6CF7" opacity="0.3" filter="url(#glowSoft)"/>
             <!-- Buenos Aires -->
-            <circle cx="218" cy="648" r="1.8" fill="#7B3FE4" opacity="0.2" filter="url(#glowSoft)"/>
+            <circle cx="215" cy="680" r="1.8" fill="#7B3FE4" opacity="0.25" filter="url(#glowSoft)"/>
             <!-- Chicago -->
-            <circle cx="205" cy="155" r="1.8" fill="#00F0FF" opacity="0.2" filter="url(#glowSoft)"/>
+            <circle cx="240" cy="145" r="1.8" fill="#00F0FF" opacity="0.25" filter="url(#glowSoft)"/>
 
           </svg>
         </div>
