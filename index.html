@@ -117,24 +117,33 @@
     }
     .nav .wrap { display: flex; align-items: center; justify-content: space-between; }
 
-    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
     .nav-mark {
       flex-shrink: 0;
-      width: 44px; height: 44px;
-      border-radius: 10px;
+      width: 48px; height: 48px;
+      border-radius: 12px;
       overflow: hidden;
       display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3), 0 0 20px rgba(0,245,212,0.06);
     }
     .nav-mark img {
-      width: 130%; height: 130%;
+      width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 40%;
+      display: block;
     }
     .nav-wordmark {
-      font-size: 22px; font-weight: 800;
+      font-size: 26px; font-weight: 800;
       letter-spacing: 0.14em;
       color: var(--text-primary);
     }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-inv {
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+    }
+    .nav-inv:hover { color: var(--text-body); }
     .nav-cta {
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 600;
@@ -171,12 +180,12 @@
       transform: translate(-45%, -48%);
       width: 110%;
       max-width: 1400px;
-      opacity: 0.16;
+      opacity: 0.24;
       pointer-events: none;
       z-index: 0;
       animation: heroMapFloat 30s ease-in-out infinite;
-      -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.4) 55%, transparent 75%);
-      mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.4) 55%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 50%, transparent 72%);
+      mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.5) 50%, transparent 72%);
     }
     .hero-map-bg img {
       width: 100%; height: auto;
@@ -377,7 +386,7 @@
       font-size: 12.5px; color: var(--text-muted);
       margin-top: 20px; line-height: 1.6;
     }
-    .hero-micro strong { color: var(--cta-gold); font-weight: 600; }
+    .hero-micro strong { color: var(--pulse-teal); font-weight: 600; }
 
     /* ── Hero Right — App Mockup ── */
     .hero-visual {
@@ -441,109 +450,63 @@
       to { transform: translate(-50%,-50%) rotate(360deg); }
     }
 
-    /* Phone shell */
-    .app-mock {
+    /* Phone product image */
+    .phone-img {
       position: relative; z-index: 2;
-      width: 270px;
-      background: linear-gradient(172deg, #111827 0%, #0B1018 100%);
-      border-radius: var(--r-xl);
-      border: 1px solid rgba(255,255,255,0.055);
-      padding: 22px 18px 18px;
-      box-shadow:
-        0 0 0 0.5px rgba(255,255,255,0.03),
-        0 28px 70px rgba(0,0,0,0.55),
-        0 0 50px rgba(0,245,212,0.04),
-        0 0 100px rgba(46,16,255,0.03);
+      width: 300px;
+      filter: drop-shadow(0 28px 60px rgba(0,0,0,0.5))
+             drop-shadow(0 0 40px rgba(0,245,212,0.06))
+             drop-shadow(0 0 80px rgba(46,16,255,0.04));
       animation: phoneFloat 8s ease-in-out infinite;
+    }
+    .phone-img img {
+      width: 100%; height: auto;
+      display: block;
     }
     @keyframes phoneFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
 
-    .app-notch { width: 80px; height: 3.5px; background: rgba(255,255,255,0.06); border-radius: 3px; margin: 0 auto 18px; }
-
-    .app-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    .app-brand { display: flex; align-items: center; gap: 5px; }
-    .app-brand-mark {
-      width: 18px; height: 18px;
-      border-radius: 4px;
-      overflow: hidden; position: relative;
-      background: var(--bg);
-    }
-    .app-brand-mark img {
-      width: 185%; height: 185%;
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-    }
-    .app-brand-text { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: var(--text-primary); }
-    .app-online { width: 6px; height: 6px; border-radius: 50%; background: var(--pulse-teal); box-shadow: 0 0 5px var(--pulse-teal); }
-
-    .app-bal-label { font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
-    .app-bal { font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.03em; line-height: 1; margin-bottom: 5px; }
-    .app-bal-delta {
-      font-size: 10.5px; color: var(--pulse-teal); font-weight: 500;
-      display: flex; align-items: center; gap: 3px; margin-bottom: 18px;
-    }
-
-    .app-btns { display: flex; gap: 6px; margin-bottom: 16px; }
-    .app-btn {
-      flex: 1; padding: 8px 0;
-      border-radius: var(--r-sm);
-      font-size: 10.5px; font-weight: 600;
-      text-align: center; letter-spacing: 0.01em;
-    }
-    .app-btn--pri { background: linear-gradient(135deg, var(--pulse-teal), var(--accent-cyan)); color: var(--bg); }
-    .app-btn--sec { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); color: var(--text-body); }
-
-    .app-div { height: 1px; background: rgba(255,255,255,0.04); margin-bottom: 14px; }
-
-    .app-activity-label { font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
-
-    .tx { display: flex; align-items: center; gap: 9px; padding: 8px 0; }
-    .tx + .tx { border-top: 1px solid rgba(255,255,255,0.025); }
-    .tx-ico {
-      width: 30px; height: 30px;
-      border-radius: 7px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .tx-ico svg { width: 13px; height: 13px; }
-    .tx-ico--send { background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.1); color: var(--subtle-magenta); }
-    .tx-ico--recv { background: rgba(0,245,212,0.06); border: 1px solid rgba(0,245,212,0.08); color: var(--pulse-teal); }
-    .tx-ico--pay  { background: rgba(46,16,255,0.06); border: 1px solid rgba(46,16,255,0.08); color: var(--accent-cyan); }
-    .tx-info { flex: 1; min-width: 0; }
-    .tx-name { font-size: 11.5px; font-weight: 600; color: var(--text-primary); line-height: 1.3; }
-    .tx-meta { font-size: 9.5px; color: var(--text-muted); }
-    .tx-amt { font-size: 11.5px; font-weight: 700; white-space: nowrap; }
-    .tx-amt--neg { color: var(--text-body); }
-    .tx-amt--pos { color: var(--pulse-teal); }
-
-    /* Floating card */
+    /* Floating card — premium fintech */
     .float-card {
       position: absolute; z-index: 3;
-      bottom: 55px; left: -44px;
-      width: 200px;
-      background: linear-gradient(162deg, #151C2B 0%, #0E1219 100%);
-      border-radius: var(--r-md);
-      border: 1px solid rgba(255,255,255,0.05);
-      padding: 12px 14px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.45), 0 0 24px rgba(233,30,99,0.03);
+      bottom: 30px; left: -50px;
+      width: 220px;
+      background: linear-gradient(155deg, #1A2235 0%, #111827 40%, #0D1117 100%);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 18px 14px;
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.5),
+        0 0 30px rgba(0,245,212,0.03),
+        inset 0 1px 0 rgba(255,255,255,0.04);
       animation: fCard 9s ease-in-out infinite;
       animation-delay: -3s;
+      overflow: hidden;
+    }
+    .float-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 80px;
+      background: radial-gradient(ellipse at top right, rgba(0,245,212,0.06), transparent 65%);
+      pointer-events: none;
     }
     @keyframes fCard {
-      0%, 100% { transform: translateY(0) rotate(-1.2deg); }
-      50% { transform: translateY(-6px) rotate(0.3deg); }
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-6px) rotate(0.5deg); }
     }
-    .fc-label { font-size: 8.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px; }
-    .fc-num { font-size: 12px; font-weight: 600; color: var(--text-dim); letter-spacing: 0.2em; margin-bottom: 9px; font-variant-numeric: tabular-nums; }
+    .fc-chip { margin-bottom: 12px; }
+    .fc-label { font-size: 8px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pulse-teal); margin-bottom: 8px; opacity: 0.8; }
+    .fc-num { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.22em; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
     .fc-row { display: flex; align-items: center; justify-content: space-between; }
-    .fc-name { font-size: 9.5px; font-weight: 600; color: var(--text-body); letter-spacing: 0.04em; }
+    .fc-name { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
     .fc-brand { display: flex; }
-    .fc-brand span { width: 13px; height: 13px; border-radius: 50%; }
-    .fc-brand span:first-child { background: #EB001B; opacity: 0.75; }
-    .fc-brand span:last-child { background: #F79E1B; opacity: 0.75; margin-left: -4px; }
+    .fc-brand span { width: 15px; height: 15px; border-radius: 50%; }
+    .fc-brand span:first-child { background: #EB001B; opacity: 0.8; }
+    .fc-brand span:last-child { background: #F79E1B; opacity: 0.8; margin-left: -5px; }
+    .fc-exp { font-size: 9px; font-weight: 500; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.1em; }
 
     /* (float-stat removed) */
 
@@ -751,22 +714,23 @@
     .clock-face {
       width: 100%; height: 100%;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.015);
+      border: 1.5px solid rgba(0,245,212,0.2);
+      background: rgba(0,245,212,0.03);
       position: relative;
+      box-shadow: 0 0 30px rgba(0,245,212,0.06), inset 0 0 20px rgba(0,245,212,0.03);
     }
     /* Tick marks */
     .clock-face::before {
       content: '';
       position: absolute;
       top: 6px; left: 50%;
-      width: 1px; height: 8px;
-      background: rgba(255,255,255,0.12);
+      width: 1.5px; height: 8px;
+      background: rgba(0,245,212,0.35);
       transform: translateX(-50%);
       box-shadow:
-        0px 80px 0 rgba(255,255,255,0.12),
-        43px 6px 0 rgba(255,255,255,0.06),
-        -43px 6px 0 rgba(255,255,255,0.06);
+        0px 80px 0 rgba(0,245,212,0.35),
+        43px 6px 0 rgba(255,255,255,0.15),
+        -43px 6px 0 rgba(255,255,255,0.15);
     }
     /* Center dot */
     .clock-face::after {
@@ -774,27 +738,28 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%,-50%);
-      width: 5px; height: 5px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--pulse-teal);
-      box-shadow: 0 0 6px var(--pulse-teal);
+      box-shadow: 0 0 10px var(--pulse-teal), 0 0 20px rgba(0,245,212,0.3);
     }
     /* Minute hand */
     .clock-hand {
       position: absolute;
       bottom: 50%; left: 50%;
-      width: 1.5px; height: 32px;
-      background: linear-gradient(to top, transparent, var(--pulse-teal));
+      width: 2px; height: 32px;
+      background: linear-gradient(to top, transparent 10%, var(--pulse-teal));
       transform-origin: bottom center;
       animation: clockTick 60s linear infinite;
       border-radius: 1px;
+      box-shadow: 0 0 6px rgba(0,245,212,0.4);
     }
     /* Hour hand */
     .clock-hand-2 {
       position: absolute;
       bottom: 50%; left: 50%;
-      width: 1.5px; height: 22px;
-      background: linear-gradient(to top, transparent, rgba(255,255,255,0.25));
+      width: 2px; height: 22px;
+      background: linear-gradient(to top, transparent 10%, rgba(255,255,255,0.5));
       transform-origin: bottom center;
       animation: clockTick 720s linear infinite;
       border-radius: 1px;
@@ -842,7 +807,7 @@
       color: var(--text-body);
       margin-bottom: 36px;
     }
-    .antic-body strong { color: var(--cta-gold); font-weight: 700; }
+    .antic-body strong { color: var(--pulse-teal); font-weight: 700; }
 
     /* CTA form */
     .antic-form {
@@ -866,9 +831,9 @@
     }
     .antic-form input::placeholder { color: var(--text-muted); }
     .antic-form input:focus {
-      border-color: rgba(245,166,35,0.35);
+      border-color: rgba(0,245,212,0.35);
       background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 0 3px rgba(245,166,35,0.05);
+      box-shadow: 0 0 0 3px rgba(0,245,212,0.05);
     }
     .antic-form input.error {
       border-color: #ff4757;
@@ -879,14 +844,14 @@
       font-family: var(--font);
       font-size: 13px; font-weight: 700;
       color: var(--bg);
-      background: linear-gradient(135deg, var(--cta-gold), #E8941A);
+      background: linear-gradient(135deg, var(--pulse-teal), #00C4A8);
       border: none;
       border-radius: 0 10px 10px 0;
       cursor: pointer; white-space: nowrap;
       transition: box-shadow 0.35s, transform 0.2s;
     }
     .antic-form button:hover {
-      box-shadow: 0 0 20px rgba(245,166,35,0.22), 0 4px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 0 20px rgba(0,245,212,0.22), 0 4px 12px rgba(0,0,0,0.25);
       transform: translateY(-1px);
     }
     .antic-form button:active { transform: none; }
@@ -904,6 +869,56 @@
     }
 
     /* (netmap section removed — map is now hero background) */
+
+    /* ═══════════════════════════════════════════════
+       INVESTORS
+       ═══════════════════════════════════════════════ */
+    .investors {
+      padding: var(--section-pad) 0;
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.025);
+    }
+    .investors .wrap {
+      text-align: center;
+      max-width: 600px;
+    }
+    .inv-tag {
+      display: inline-block;
+      font-size: 11.5px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--pulse-teal);
+      margin-bottom: 28px;
+    }
+    .inv-headline {
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+    .inv-body {
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 32px;
+    }
+    .inv-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 15px; font-weight: 600;
+      color: var(--pulse-teal);
+      text-decoration: none;
+      padding: 12px 28px;
+      border: 1px solid rgba(0,245,212,0.18);
+      border-radius: 10px;
+      background: rgba(0,245,212,0.04);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .inv-email:hover {
+      background: rgba(0,245,212,0.08);
+      border-color: rgba(0,245,212,0.3);
+      box-shadow: 0 0 24px rgba(0,245,212,0.08);
+    }
 
     /* ═══════════════════════════════════════════════
        FOOTER
@@ -992,11 +1007,14 @@
     <div class="wrap">
       <a href="/" class="nav-logo" aria-label="BOAVIX Home">
         <div class="nav-mark">
-          <img src="boavix-logo.png" alt="BOAVIX" />
+          <img src="boavix-icon.png" alt="BOAVIX" />
         </div>
         <span class="nav-wordmark">BOAVIX</span>
       </a>
-      <a href="#waitlist" class="nav-cta">Solicitar Acceso</a>
+      <div class="nav-right">
+        <a href="#inversionistas" class="nav-inv">Inversionistas</a>
+        <a href="#waitlist" class="nav-cta">Solicitar Acceso</a>
+      </div>
     </div>
   </nav>
 
@@ -1015,10 +1033,10 @@
       <div class="hero-copy">
         <div class="hero-badge reveal">
           <span class="badge-dot"></span>
-          <span>Desde Venezuela. Para las Americas.</span>
+          <span>Rediseñando la infraestructura financiera</span>
         </div>
-        <h1 class="reveal d1">El acceso no deberia depender de <span class="tg">donde vienes.</span></h1>
-        <p class="hero-sub reveal d2">BOAVIX esta construyendo una nueva forma de mover dinero en las Americas — para los millones que han tenido que buscar alternativas en un sistema que nunca fue hecho para ellos. Pronto.</p>
+        <h1 class="reveal d1">El acceso no debería depender de <span class="tg">dónde vienes.</span></h1>
+        <p class="hero-sub reveal d2">BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica. Para los millones que merecen algo mejor. Pronto.</p>
         <form class="hero-form reveal d3" id="heroForm" novalidate>
           <input type="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" required>
           <button type="submit">Solicitar Acceso Anticipado</button>
@@ -1035,55 +1053,22 @@
         <div class="mock-ring" aria-hidden="true"></div>
         <div class="mock-ring-2" aria-hidden="true"></div>
 
-        <div class="app-mock">
-          <div class="app-notch"></div>
-          <div class="app-head">
-            <div class="app-brand">
-              <div class="app-brand-mark"><img src="Gemini_Generated_Image_z3ubc1z3ubc1z3ub.png" alt=""></div>
-              <span class="app-brand-text">BOAVIX</span>
-            </div>
-            <div class="app-online"></div>
-          </div>
-          <div class="app-bal-label">Balance Total</div>
-          <div class="app-bal">$12,450.80</div>
-          <div class="app-bal-delta">
-            <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 2L8 6H2L5 2Z" fill="#00F5D4"/></svg>
-            +2.4% este mes
-          </div>
-          <div class="app-btns">
-            <div class="app-btn app-btn--pri">Enviar</div>
-            <div class="app-btn app-btn--sec">Recibir</div>
-            <div class="app-btn app-btn--sec">Pagar</div>
-          </div>
-          <div class="app-div"></div>
-          <div class="app-activity-label">Actividad Reciente</div>
-          <div class="tx">
-            <div class="tx-ico tx-ico--send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Enviado a Juan P.</div><div class="tx-meta">25 ene, 7:38 AM</div></div>
-            <div class="tx-amt tx-amt--neg">-$150.00</div>
-          </div>
-          <div class="tx">
-            <div class="tx-ico tx-ico--recv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 7L7 17M7 17H17M7 17V7"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Recibido de Wise</div><div class="tx-meta">24 ene, 2:15 PM</div></div>
-            <div class="tx-amt tx-amt--pos">+$1,200.00</div>
-          </div>
-          <div class="tx">
-            <div class="tx-ico tx-ico--pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
-            <div class="tx-info"><div class="tx-name">Pago a Revolut</div><div class="tx-meta">23 ene, 11:02 AM</div></div>
-            <div class="tx-amt tx-amt--neg">-$50.00</div>
-          </div>
+        <div class="phone-img">
+          <img src="Phone.png" alt="BOAVIX app mostrando balance, transferencias y actividad reciente" />
         </div>
 
         <div class="float-card">
-          <div class="fc-label">BOAVIX Card</div>
-          <div class="fc-num">4567 **** **** 1039</div>
+          <div class="fc-chip" aria-hidden="true">
+            <svg width="24" height="18" viewBox="0 0 24 18" fill="none"><rect x="0.5" y="0.5" width="23" height="17" rx="2.5" stroke="rgba(255,255,255,0.15)"/><rect x="4" y="4" width="7" height="5" rx="1" fill="rgba(0,245,212,0.3)"/><rect x="4" y="10" width="7" height="4" rx="1" fill="rgba(0,245,212,0.18)"/><rect x="12" y="6" width="4" height="3" rx="0.5" fill="rgba(0,245,212,0.12)"/></svg>
+          </div>
+          <div class="fc-label">Tarjeta BOAVIX</div>
+          <div class="fc-num">4567 •••• •••• 1039</div>
           <div class="fc-row">
-            <span class="fc-name">BOAVIX MEMBER</span>
+            <span class="fc-name">MIEMBRO BOAVIX</span>
             <div class="fc-brand"><span></span><span></span></div>
           </div>
+          <div class="fc-exp">12/28</div>
         </div>
-
-        <!-- float-stat removed -->
       </div>
     </div>
   </section>
@@ -1094,9 +1079,9 @@
   <section class="signal">
     <div class="wrap">
       <div class="signal-inner">
-        <div class="signal-tag reveal">La Senal</div>
-        <p class="reveal d1">Millones de personas en las Americas mueven dinero cada dia — entre familias, entre paises, entre vidas que construyen en dos lugares a la vez. Y cada vez, pasan por sistemas que no fueron disenados para ellos. <em>Lentos. Caros. Hechos para otros.</em></p>
-        <p class="reveal d2">BOAVIX existe porque eso no es suficiente. No estamos reparando lo que esta roto — estamos reemplazando la idea de que <em>el acceso es un privilegio de la geografia.</em></p>
+        <div class="signal-tag reveal">La Señal</div>
+        <p class="reveal d1">Si vives en Venezuela, enviar o recibir dinero no debería sentirse como un obstáculo. Millones de venezolanos mueven dinero cada día — entre familias separadas, entre países, entre la vida que construyen aquí y allá. Y cada vez, pasan por sistemas que no fueron diseñados para ellos. <em>Lentos. Caros. Hechos para otros.</em></p>
+        <p class="reveal d2">BOAVIX nace en Venezuela porque ahí es donde el cambio se necesita primero. No estamos reparando lo que está roto — estamos reemplazando la idea de que <em>el acceso financiero es un privilegio de la geografía.</em></p>
       </div>
     </div>
   </section>
@@ -1129,7 +1114,7 @@
             </svg>
           </div>
           <h3>Un hemisferio. Una experiencia.</h3>
-          <p>Caracas. Lima. Miami. Toronto. El mismo estandar, estes donde estes. Sin rodeos. Sin compromisos.</p>
+          <p>Caracas. Miami. Vancouver. Toronto. El mismo estándar, estés donde estés. Sin rodeos. Sin compromisos.</p>
         </div>
         <div class="p-card reveal d2">
           <div class="p-step">03</div>
@@ -1156,7 +1141,7 @@
             <div class="clock-hand-2"></div>
           </div>
         </div>
-        <p class="antic-text reveal d1">El momento importa. Nos estamos tomando el tiempo para construir esto bien.</p>
+        <p class="antic-text reveal d1">El momento importa. Nos estamos tomando el tiempo<br>para construir esto bien.</p>
         <h2 class="antic-headline reveal d2">Algo esta por llegar.</h2>
         <p class="antic-body reveal d3">Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara.</p>
         <form class="antic-form reveal d4" id="ctaForm" novalidate>
@@ -1169,12 +1154,25 @@
     </div>
   </section>
 
+  <!-- ═══ INVESTORS ═══ -->
+  <section class="investors" id="inversionistas">
+    <div class="wrap">
+      <div class="inv-tag reveal">Inversionistas</div>
+      <h2 class="inv-headline reveal d1">Construimos infraestructura financiera para las Am&eacute;ricas.</h2>
+      <p class="inv-body reveal d2">Si compartes nuestra visi&oacute;n de un sistema financiero sin fronteras — comenzando en Venezuela — nos encantar&iacute;a conversar.</p>
+      <a href="mailto:investors@boavix.com" class="inv-email reveal d3">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+        investors@boavix.com
+      </a>
+    </div>
+  </section>
+
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer-left">
         <div class="footer-mark">
-          <img src="boavix-logo.png" alt="BOAVIX" style="width:32px;height:32px;border-radius:7px;object-fit:cover;object-position:center 40%;" />
+          <img src="boavix-icon.png" alt="BOAVIX" style="width:32px;height:32px;border-radius:7px;object-fit:cover;" />
         </div>
         <span class="footer-name">BOAVIX</span>
       </div>
