@@ -906,6 +906,43 @@
     .footer-end { font-size: 11.5px; color: rgba(255,255,255,0.22); }
 
     /* ═══════════════════════════════════════════════
+       LANGUAGE SWITCHER
+       ═══════════════════════════════════════════════ */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 5px 10px;
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      cursor: pointer;
+      transition: color 0.25s, background 0.25s;
+      line-height: 1;
+    }
+    .lang-btn:hover { color: var(--text-body); }
+    .lang-btn.active {
+      background: rgba(0,245,212,0.1);
+      color: var(--pulse-teal);
+    }
+    .lang-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
        FORM SUCCESS STATE
        ═══════════════════════════════════════════════ */
     .form-success {
@@ -1004,7 +1041,8 @@
       .nav { padding: 10px 0; }
       .nav-mark { width: 68px; height: 68px; margin: -16px -6px -16px -8px; }
       .nav-wordmark { font-size: 22px; }
-      .nav-right { gap: 16px; }
+      .nav-right { gap: 14px; }
+      .lang-btn { font-size: 10px; padding: 4px 8px; }
       .nav-inv { font-size: 12px; }
       .nav-cta { font-size: 12px; padding: 8px 16px; }
 
@@ -1035,9 +1073,11 @@
       .nav { padding: 8px 0; }
       .nav-mark { width: 56px; height: 56px; margin: -12px -4px -12px -6px; }
       .nav-wordmark { font-size: 19px; letter-spacing: 0.08em; }
-      .nav-right { gap: 12px; }
+      .nav-right { gap: 10px; }
       .nav-inv { font-size: 11px; letter-spacing: 0; }
       .nav-cta { font-size: 11px; padding: 7px 14px; border-radius: 6px; }
+      .lang-btn { font-size: 9.5px; padding: 4px 7px; }
+      .lang-sep { height: 12px; }
 
       /* ISSUE 3 — map even more prominent on mobile */
       .hero-map-bg {
@@ -1142,7 +1182,8 @@
     /* ── Very small screens ── */
     @media (max-width: 380px) {
       .nav-inv { display: none; }
-      .nav-right { gap: 0; }
+      .nav-right { gap: 8px; }
+      .lang-btn { font-size: 9px; padding: 3px 6px; }
       .nav-mark { width: 48px; height: 48px; margin: -10px -2px -10px -4px; }
       .nav-wordmark { font-size: 17px; }
       .nav-cta { font-size: 11px; padding: 7px 14px; }
@@ -1164,8 +1205,13 @@
         <span class="nav-wordmark">BOAVIX</span>
       </a>
       <div class="nav-right">
-        <a href="#inversionistas" class="nav-inv">Inversionistas</a>
-        <a href="#waitlist" class="nav-cta">Solicitar Acceso</a>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+          <div class="lang-sep" aria-hidden="true"></div>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="#inversionistas" class="nav-inv" data-es="Inversionistas" data-en="Investors">Inversionistas</a>
+        <a href="#waitlist" class="nav-cta" data-es="Solicitar Acceso" data-en="Request Access">Solicitar Acceso</a>
       </div>
     </div>
   </nav>
@@ -1185,21 +1231,21 @@
       <div class="hero-copy">
         <div class="hero-badge reveal">
           <span class="badge-dot"></span>
-          <span>Rediseñando la infraestructura financiera en Latinoamérica</span>
+          <span data-es="Rediseñando la infraestructura financiera en Latinoamérica" data-en="Rebuilding financial infrastructure across Latin America">Rediseñando la infraestructura financiera en Latinoamérica</span>
         </div>
-        <h1 class="reveal d1">El acceso no debería depender de <span class="tg">dónde vienes.</span></h1>
-        <p class="hero-sub reveal d2">BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica, para los millones que merecen algo mejor. Pronto.</p>
+        <h1 class="reveal d1" data-es="El acceso no debería depender de <span class=&quot;tg&quot;>dónde vienes.</span>" data-en="Access shouldn't depend on <span class=&quot;tg&quot;>where you're from.</span>">El acceso no debería depender de <span class="tg">dónde vienes.</span></h1>
+        <p class="hero-sub reveal d2" data-es="BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica, para los millones que merecen algo mejor. Pronto." data-en="BOAVIX is building a new way to move money — starting in Venezuela, expanding across Latin America, for the millions who deserve something better. Soon.">BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica, para los millones que merecen algo mejor. Pronto.</p>
         <form class="hero-form reveal d3" id="heroForm" novalidate>
-          <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" required>
-          <button type="submit"><span>Solicitar Acceso Anticipado</span></button>
+          <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" data-es-ph="Ingresa tu correo" data-en-ph="Enter your email" required>
+          <button type="submit"><span data-es="Solicitar Acceso Anticipado" data-en="Request Early Access">Solicitar Acceso Anticipado</span></button>
           <span class="form-msg" id="heroMsg"></span>
         </form>
         <div class="form-success" id="heroSuccess" style="display:none;">
           <div class="success-check">&#10003;</div>
-          <p class="success-title">¡Ya estás en la lista!</p>
-          <p class="success-body">Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento.</p>
+          <p class="success-title" data-es="¡Ya estás en la lista!" data-en="You're on the list!">¡Ya estás en la lista!</p>
+          <p class="success-body" data-es="Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento." data-en="We'll notify you when BOAVIX opens access.<br>If you're among the first 1,000, you'll receive your launch credit.">Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento.</p>
         </div>
-        <p class="hero-micro reveal d4">
+        <p class="hero-micro reveal d4" data-es="<strong>Los primeros 1,000 reciben $10 de credito al lanzamiento.</strong><br>Sin ruido. Solo lo importante." data-en="<strong>The first 1,000 get $10 in launch credit.</strong><br>No noise. Just what matters.">
           <strong>Los primeros 1,000 reciben $10 de credito al lanzamiento.</strong><br>
           Sin ruido. Solo lo importante.
         </p>
@@ -1224,9 +1270,9 @@
   <section class="signal">
     <div class="wrap">
       <div class="signal-inner">
-        <div class="signal-tag reveal">La Señal</div>
-        <p class="reveal d1">Para Venezuela, enviar o recibir dinero no debería sentirse como un obstáculo. Millones de venezolanos mueven dinero cada día — entre familias separadas, entre países, entre la vida que construyen aquí y allá. Y cada vez, pasan por sistemas que no fueron diseñados para ellos. <em>Lentos. Caros. Hechos para otros.</em></p>
-        <p class="reveal d2">BOAVIX nace en Venezuela porque ahí es donde el cambio se necesita primero. No estamos reparando lo que está roto — estamos reemplazando la idea de que <em>el acceso financiero es un privilegio de la geografía.</em></p>
+        <div class="signal-tag reveal" data-es="La Señal" data-en="The Signal">La Señal</div>
+        <p class="reveal d1" data-es="Para Venezuela, enviar o recibir dinero no debería sentirse como un obstáculo. Millones de venezolanos mueven dinero cada día — entre familias separadas, entre países, entre la vida que construyen aquí y allá. Y cada vez, pasan por sistemas que no fueron diseñados para ellos. <em>Lentos. Caros. Hechos para otros.</em>" data-en="For Venezuela, sending or receiving money shouldn't feel like running an obstacle course. Millions of Venezuelans move money every day — between separated families, across borders, between the life they're building here and the one they left behind. And every time, they're forced through systems that were never built for them. <em>Slow. Expensive. Made for someone else.</em>">Para Venezuela, enviar o recibir dinero no debería sentirse como un obstáculo. Millones de venezolanos mueven dinero cada día — entre familias separadas, entre países, entre la vida que construyen aquí y allá. Y cada vez, pasan por sistemas que no fueron diseñados para ellos. <em>Lentos. Caros. Hechos para otros.</em></p>
+        <p class="reveal d2" data-es="BOAVIX nace en Venezuela porque ahí es donde el cambio se necesita primero. No estamos reparando lo que está roto — estamos reemplazando la idea de que <em>el acceso financiero es un privilegio de la geografía.</em>" data-en="BOAVIX starts in Venezuela because that's where the change is needed most. We're not patching what's broken — we're replacing the idea that <em>financial access is a privilege of geography.</em>">BOAVIX nace en Venezuela porque ahí es donde el cambio se necesita primero. No estamos reparando lo que está roto — estamos reemplazando la idea de que <em>el acceso financiero es un privilegio de la geografía.</em></p>
       </div>
     </div>
   </section>
@@ -1237,8 +1283,8 @@
   <section class="pillars">
     <div class="wrap">
       <div class="pillars-head">
-        <p class="pillars-tag reveal">Lo que viene</p>
-        <h2 class="pillars-title reveal d1">La infraestructura que mereces.</h2>
+        <p class="pillars-tag reveal" data-es="Lo que viene" data-en="What's Coming">Lo que viene</p>
+        <h2 class="pillars-title reveal d1" data-es="La infraestructura que mereces." data-en="The infrastructure you deserve.">La infraestructura que mereces.</h2>
       </div>
       <div class="pillars-grid">
         <div class="p-card reveal">
@@ -1248,8 +1294,8 @@
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3>Hecho para como la gente realmente vive</h3>
-          <p>El dinero no se detiene en las fronteras. El acceso tampoco deberia. BOAVIX empieza donde el sistema actual se queda corto.</p>
+          <h3 data-es="Hecho para como la gente realmente vive" data-en="Built for how people actually live">Hecho para como la gente realmente vive</h3>
+          <p data-es="El dinero no se detiene en las fronteras. El acceso tampoco deberia. BOAVIX empieza donde el sistema actual se queda corto." data-en="Money doesn't stop at borders. Neither should access. BOAVIX starts where the current system falls short.">El dinero no se detiene en las fronteras. El acceso tampoco deberia. BOAVIX empieza donde el sistema actual se queda corto.</p>
         </div>
         <div class="p-card reveal d1">
           <div class="p-step">02</div>
@@ -1258,8 +1304,8 @@
               <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </div>
-          <h3>Un hemisferio. Una experiencia.</h3>
-          <p>Caracas. Miami. Vancouver. Toronto. El mismo estándar, estés donde estés. Sin rodeos. Sin compromisos.</p>
+          <h3 data-es="Un hemisferio. Una experiencia." data-en="One hemisphere. One standard.">Un hemisferio. Una experiencia.</h3>
+          <p data-es="Caracas. Miami. Vancouver. Toronto. El mismo estándar, estés donde estés. Sin rodeos. Sin compromisos." data-en="Caracas. Miami. Vancouver. Toronto. The same experience, wherever you are. No workarounds. No compromises.">Caracas. Miami. Vancouver. Toronto. El mismo estándar, estés donde estés. Sin rodeos. Sin compromisos.</p>
         </div>
         <div class="p-card reveal d2">
           <div class="p-step">03</div>
@@ -1268,8 +1314,8 @@
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <h3>Una nueva capa de confianza</h3>
-          <p>Tu historial financiero deberia abrir puertas — no cerrarlas. Estamos construyendo la forma de hacerlo realidad.</p>
+          <h3 data-es="Una nueva capa de confianza" data-en="A new layer of trust">Una nueva capa de confianza</h3>
+          <p data-es="Tu historial financiero deberia abrir puertas — no cerrarlas. Estamos construyendo la forma de hacerlo realidad." data-en="Your financial history should open doors — not close them. We're building the infrastructure to make that real.">Tu historial financiero deberia abrir puertas — no cerrarlas. Estamos construyendo la forma de hacerlo realidad.</p>
         </div>
       </div>
     </div>
@@ -1286,20 +1332,20 @@
             <div class="clock-hand-2"></div>
           </div>
         </div>
-        <p class="antic-text reveal d1">El momento importa. Nos estamos tomando el tiempo<br>para construir esto bien.</p>
-        <h2 class="antic-headline reveal d2">Algo esta por llegar.</h2>
-        <p class="antic-body reveal d3">Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara.</p>
+        <p class="antic-text reveal d1" data-es="El momento importa. Nos estamos tomando el tiempo<br>para construir esto bien." data-en="Timing matters. We're taking the time<br>to build this right.">El momento importa. Nos estamos tomando el tiempo<br>para construir esto bien.</p>
+        <h2 class="antic-headline reveal d2" data-es="Algo esta por llegar." data-en="Something is coming.">Algo esta por llegar.</h2>
+        <p class="antic-body reveal d3" data-es="Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara." data-en="We're building behind closed doors and opening access in waves. The first 1,000 people on the list will receive <strong>$10 in credit</strong> at launch. That number is real, and it won't last.">Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara.</p>
         <form class="antic-form reveal d4" id="ctaForm" novalidate>
-          <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" required>
-          <button type="submit"><span>Asegurar Mi Lugar</span></button>
+          <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" data-es-ph="Ingresa tu correo" data-en-ph="Enter your email" required>
+          <button type="submit"><span data-es="Asegurar Mi Lugar" data-en="Secure My Spot">Asegurar Mi Lugar</span></button>
           <span class="form-msg" id="ctaMsg"></span>
         </form>
         <div class="form-success" id="ctaSuccess" style="display:none;">
           <div class="success-check">&#10003;</div>
-          <p class="success-title">¡Ya estás en la lista!</p>
-          <p class="success-body">Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento.</p>
+          <p class="success-title" data-es="¡Ya estás en la lista!" data-en="You're on the list!">¡Ya estás en la lista!</p>
+          <p class="success-body" data-es="Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento." data-en="We'll notify you when BOAVIX opens access.<br>If you're among the first 1,000, you'll receive your launch credit.">Te avisaremos cuando BOAVIX abra acceso.<br>Si tu registro está entre los primeros 1,000, recibirás tu crédito de lanzamiento.</p>
         </div>
-        <p class="antic-micro reveal d5">Deja tu correo. Te avisamos cuando abramos las puertas.</p>
+        <p class="antic-micro reveal d5" data-es="Deja tu correo. Te avisamos cuando abramos las puertas." data-en="Drop your email. We'll let you know when we open the doors.">Deja tu correo. Te avisamos cuando abramos las puertas.</p>
       </div>
     </div>
   </section>
@@ -1307,9 +1353,9 @@
   <!-- ═══ INVESTORS ═══ -->
   <section class="investors" id="inversionistas">
     <div class="wrap">
-      <div class="inv-tag reveal">Inversionistas</div>
-      <h2 class="inv-headline reveal d1">Construimos infraestructura financiera para Latinoam&eacute;rica.</h2>
-      <p class="inv-body reveal d2">Si compartes nuestra visi&oacute;n de un sistema financiero sin fronteras — comenzando en Venezuela — nos encantar&iacute;a conversar.</p>
+      <div class="inv-tag reveal" data-es="Inversionistas" data-en="Investors">Inversionistas</div>
+      <h2 class="inv-headline reveal d1" data-es="Construimos infraestructura financiera para Latinoamérica." data-en="We're building financial infrastructure for Latin America.">Construimos infraestructura financiera para Latinoam&eacute;rica.</h2>
+      <p class="inv-body reveal d2" data-es="Si compartes nuestra visión de un sistema financiero sin fronteras — comenzando en Venezuela — nos encantaría conversar." data-en="If you share our vision of a borderless financial system — starting in Venezuela — we'd love to talk.">Si compartes nuestra visi&oacute;n de un sistema financiero sin fronteras — comenzando en Venezuela — nos encantar&iacute;a conversar.</p>
       <a href="mailto:investors@boavix.com" class="inv-email reveal d3">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
         investors@boavix.com
@@ -1327,7 +1373,7 @@
         <span class="footer-name">BOAVIX</span>
       </div>
       <div class="footer-mid"><a href="mailto:info@boavix.com">info@boavix.com</a></div>
-      <div class="footer-end">&copy; 2026 BOAVIX. Todos los derechos reservados.</div>
+      <div class="footer-end" data-es="© 2026 BOAVIX. Todos los derechos reservados." data-en="© 2026 BOAVIX. All rights reserved.">&copy; 2026 BOAVIX. Todos los derechos reservados.</div>
     </div>
   </footer>
 
@@ -1370,15 +1416,16 @@
         if (submitting) return;
 
         const v = i.value.trim();
+        const lang = window.boavixLang ? window.boavixLang() : 'es';
         if (!v) {
           i.classList.add('error');
-          m.textContent = 'Por favor ingresa un correo electrónico válido.';
+          m.textContent = window.boavixErr ? window.boavixErr[lang] : 'Por favor ingresa un correo electrónico válido.';
           m.className = 'form-msg show';
           return;
         }
         if (!isValid(v)) {
           i.classList.add('error');
-          m.textContent = 'Por favor ingresa un correo electrónico válido.';
+          m.textContent = window.boavixErr ? window.boavixErr[lang] : 'Por favor ingresa un correo electrónico válido.';
           m.className = 'form-msg show';
           return;
         }
@@ -1406,11 +1453,11 @@
             s.style.display = 'block';
           } else {
             const data = await res.json().catch(() => ({}));
-            m.textContent = data.error || 'Hubo un problema. Inténtalo nuevamente.';
+            m.textContent = data.error || (window.boavixNetErr ? window.boavixNetErr[lang] : 'Hubo un problema. Inténtalo nuevamente.');
             m.className = 'form-msg show';
           }
         } catch (err) {
-          m.textContent = 'Hubo un problema. Inténtalo nuevamente.';
+          m.textContent = window.boavixNetErr ? window.boavixNetErr[lang] : 'Hubo un problema. Inténtalo nuevamente.';
           m.className = 'form-msg show';
         } finally {
           submitting = false;
@@ -1421,6 +1468,56 @@
 
     initForm('heroForm', 'heroMsg', 'heroSuccess');
     initForm('ctaForm', 'ctaMsg', 'ctaSuccess');
+
+    // ── Language Toggle ──
+    (function(){
+      const errMsg = { es: 'Por favor ingresa un correo electrónico válido.', en: 'Please enter a valid email address.' };
+      const netErr = { es: 'Hubo un problema. Inténtalo nuevamente.', en: 'Something went wrong. Please try again.' };
+      let currentLang = localStorage.getItem('boavix-lang') || 'es';
+
+      function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('boavix-lang', lang);
+        document.documentElement.lang = lang;
+
+        // Swap text/html content
+        document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+          el.innerHTML = el.getAttribute('data-' + lang);
+        });
+
+        // Swap placeholders
+        document.querySelectorAll('[data-' + lang + '-ph]').forEach(function(el) {
+          el.placeholder = el.getAttribute('data-' + lang + '-ph');
+        });
+
+        // Update active button
+        document.querySelectorAll('.lang-btn').forEach(function(b) {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+
+        // Update page title & meta
+        var titles = { es: 'BOAVIX — El acceso no deberia depender de donde vienes', en: 'BOAVIX — Access shouldn\'t depend on where you\'re from' };
+        var descs = { es: 'BOAVIX esta construyendo una nueva forma de mover dinero en las Americas. Solicita acceso anticipado y se parte de los primeros 1,000.', en: 'BOAVIX is building a new way to move money across the Americas. Request early access and be among the first 1,000.' };
+        document.title = titles[lang];
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.content = descs[lang];
+      }
+
+      // Expose for form error messages
+      window.boavixLang = function() { return currentLang; };
+      window.boavixErr = errMsg;
+      window.boavixNetErr = netErr;
+
+      // Bind buttons
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setLang(this.getAttribute('data-lang'));
+        });
+      });
+
+      // Apply saved preference on load
+      if (currentLang !== 'es') setLang(currentLang);
+    })();
   </script>
 </body>
 </html>
