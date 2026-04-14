@@ -1259,6 +1259,8 @@
         <h1 class="reveal d1" data-es="El acceso no debería depender de <span class=&quot;tg&quot;>dónde vienes.</span>" data-en="Access shouldn't depend on <span class=&quot;tg&quot;>where you're from.</span>">El acceso no debería depender de <span class="tg">dónde vienes.</span></h1>
         <p class="hero-sub reveal d2" data-es="BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica, para los millones que merecen algo mejor. Pronto." data-en="BOAVIX is building a new way to move money — starting in Venezuela, expanding across Latin America, for the millions who deserve something better. Soon.">BOAVIX está construyendo una nueva forma de mover dinero — comenzando en Venezuela, con visión hacia toda Latinoamérica, para los millones que merecen algo mejor. Pronto.</p>
         <form class="hero-form reveal d3" id="heroForm" novalidate>
+          <input type="hidden" name="language" value="es" class="lang-field">
+          <input type="hidden" name="source" value="BOAVIX Landing Page">
           <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" data-es-ph="Ingresa tu correo" data-en-ph="Enter your email" required>
           <button type="submit"><span data-es="Solicitar Acceso Anticipado" data-en="Request Early Access">Solicitar Acceso Anticipado</span></button>
           <span class="form-msg" id="heroMsg"></span>
@@ -1359,6 +1361,8 @@
         <h2 class="antic-headline reveal d2" data-es="Algo esta por llegar." data-en="Something is coming.">Algo esta por llegar.</h2>
         <p class="antic-body reveal d3" data-es="Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara." data-en="We're building behind closed doors and opening access in waves. The first 1,000 people on the list will receive <strong>$10 in credit</strong> at launch. That number is real, and it won't last.">Estamos construyendo a puertas cerradas y abriendo acceso por oleadas. Las primeras 1,000 personas en la lista recibiran <strong>$10 de credito</strong> en el momento del lanzamiento. Ese numero es real, y no durara.</p>
         <form class="antic-form reveal d4" id="ctaForm" novalidate>
+          <input type="hidden" name="language" value="es" class="lang-field">
+          <input type="hidden" name="source" value="BOAVIX Landing Page">
           <input type="email" name="email" placeholder="Ingresa tu correo" aria-label="Correo electronico" data-es-ph="Ingresa tu correo" data-en-ph="Enter your email" required>
           <button type="submit"><span data-es="Asegurar Mi Lugar" data-en="Secure My Spot">Asegurar Mi Lugar</span></button>
           <span class="form-msg" id="ctaMsg"></span>
@@ -1420,16 +1424,43 @@
       });
     })();
 
-    // Forms — Formspree AJAX
+    // Forms — Google Apps Script (bilingual autoresponder) + Formspree fallback
+    const GAS_URL   = ''; // populated after Apps Script web app deploy
     const FORMSPREE = 'https://formspree.io/f/xbdqrnaz';
     function isValid(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+    async function postWaitlist(payload) {
+      if (GAS_URL) {
+        // text/plain avoids CORS preflight against Apps Script web app
+        const res = await fetch(GAS_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('gas_http_' + res.status);
+        const data = await res.json().catch(() => ({}));
+        if (data && data.ok === false) throw new Error(data.error || 'gas_error');
+        return data;
+      }
+      // Fallback: Formspree (no language-aware autoresponder)
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'formspree_http_' + res.status);
+      }
+      return res.json().catch(() => ({}));
+    }
 
     function initForm(fid, mid, sid) {
       const f = document.getElementById(fid),
             m = document.getElementById(mid),
             s = document.getElementById(sid),
-            i = f.querySelector('input'),
-            b = f.querySelector('button');
+            i = f.querySelector('input[type="email"]'),
+            b = f.querySelector('button'),
+            langField = f.querySelector('.lang-field');
       let submitting = false;
 
       i.addEventListener('input', () => { i.classList.remove('error'); m.classList.remove('show'); });
@@ -1440,45 +1471,27 @@
 
         const v = i.value.trim();
         const lang = window.boavixLang ? window.boavixLang() : 'es';
-        if (!v) {
-          i.classList.add('error');
-          m.textContent = window.boavixErr ? window.boavixErr[lang] : 'Por favor ingresa un correo electrónico válido.';
-          m.className = 'form-msg show';
-          return;
-        }
-        if (!isValid(v)) {
+        if (langField) langField.value = lang;
+
+        if (!v || !isValid(v)) {
           i.classList.add('error');
           m.textContent = window.boavixErr ? window.boavixErr[lang] : 'Por favor ingresa un correo electrónico válido.';
           m.className = 'form-msg show';
           return;
         }
 
-        // Loading state
         submitting = true;
         b.classList.add('loading');
         m.classList.remove('show');
 
         try {
-          const res = await fetch(FORMSPREE, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ email: v })
+          await postWaitlist({
+            email: v,
+            language: lang,
+            source: 'BOAVIX Landing Page'
           });
-
-          if (res.ok) {
-            // Success — hide form, show success message
-            f.style.display = 'none';
-            // Also hide the micro text below form if it exists
-            const micro = f.nextElementSibling;
-            if (micro && micro.classList.contains('form-msg')) {
-              // skip, it's the msg span inside the form
-            }
-            s.style.display = 'block';
-          } else {
-            const data = await res.json().catch(() => ({}));
-            m.textContent = data.error || (window.boavixNetErr ? window.boavixNetErr[lang] : 'Hubo un problema. Inténtalo nuevamente.');
-            m.className = 'form-msg show';
-          }
+          f.style.display = 'none';
+          s.style.display = 'block';
         } catch (err) {
           m.textContent = window.boavixNetErr ? window.boavixNetErr[lang] : 'Hubo un problema. Inténtalo nuevamente.';
           m.className = 'form-msg show';
@@ -1511,6 +1524,11 @@
         // Swap placeholders
         document.querySelectorAll('[data-' + lang + '-ph]').forEach(function(el) {
           el.placeholder = el.getAttribute('data-' + lang + '-ph');
+        });
+
+        // Sync hidden language fields on waitlist forms
+        document.querySelectorAll('.lang-field').forEach(function(el) {
+          el.value = lang;
         });
 
         // Update active button
