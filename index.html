@@ -67,7 +67,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .lang-toggle button.active{background:var(--brand-grad);color:var(--navy-0);font-weight:600}
 .cta-ghost{padding:12px 22px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:all .2s;color:var(--ink)}
 .cta-ghost:hover{background:var(--white);color:var(--navy-0);border-color:var(--white)}
-@media (max-width:960px){.nav-center{display:none}.nav{padding:10px 20px}.brand{gap:8px;font-size:22px}.brand img{width:80px;height:80px}}
+@media (max-width:960px){
+  .nav-center{display:none}
+  .nav{padding:14px 20px 14px;display:flex;flex-wrap:wrap;gap:12px;row-gap:14px;align-items:center;justify-content:space-between}
+  .nav-right{display:contents}
+  .brand{gap:6px;font-size:20px;flex:0 1 auto;min-width:0;align-items:center}
+  .brand img{width:60px;height:60px}
+  .brand span{letter-spacing:.18em}
+  .lang-toggle{order:2;flex:0 0 auto;margin-left:auto}
+  .cta-ghost{order:3;flex:0 0 100%;text-align:center;padding:13px 18px;white-space:nowrap;font-size:12px;letter-spacing:.16em}
+}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;overflow:hidden;isolation:isolate;background:var(--navy-1)}
@@ -229,7 +238,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 
 /* MOBILE polish — refinement 16 */
 @media (max-width:768px){
-  .hero-inner{padding:130px 20px 80px;gap:40px}
+  .hero-inner{padding:170px 20px 80px;gap:40px}
   .hero-sub{font-size:17px}
   .hero-eyebrow{font-size:13px}
   .wrap{padding:0 20px}
