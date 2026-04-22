@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOAVIX — Acerca de nosotros</title>
+<meta name="description" content="Qué es BOAVIX, por qué existimos y hacia dónde vamos. Infraestructura financiera para Latinoamérica.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/assets/boavix-b-logo.png">
+<style>
+@font-face{font-family:'Geist';font-weight:300 800;font-display:swap;src:url("assets/geist-latin.woff2") format('woff2');unicode-range:U+0000-00FF}
+@font-face{font-family:'JetBrains Mono';font-weight:400 600;font-display:swap;src:url("assets/jetbrains-latin.woff2") format('woff2');unicode-range:U+0000-00FF}
+:root{--navy-0:#05081F;--navy-1:#0A0E2B;--ink:#E9ECF5;--ink-dim:#8B95B5;--cyan:#00E5C7;--mint:#5EEAD4;--line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.16);--brand-grad:linear-gradient(135deg,#00E5C7 0%,#4FAEFF 50%,#B847FF 100%);--f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,Arial,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--navy-1);color:var(--ink);font-family:var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-size:16px;line-height:1.6;letter-spacing:-.005em}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(10,14,43,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line)}
+.brand{display:flex;align-items:center;gap:16px;font-weight:700;letter-spacing:.2em;font-size:22px;color:#fff}
+.brand img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(79,174,255,.4))}
+.nav-center{display:flex;gap:32px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+.nav-center a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang-toggle{display:flex;border:1px solid var(--line-strong);border-radius:999px;padding:3px;font-family:var(--f-mono);font-size:12px}
+.lang-toggle button{padding:6px 13px;border-radius:999px;color:var(--ink-dim);transition:all .2s}
+.lang-toggle button.active{background:var(--brand-grad);color:var(--navy-0);font-weight:600}
+.cta-ghost{padding:12px 22px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.cta-ghost:hover{background:#fff;color:var(--navy-0);border-color:#fff}
+@media (max-width:960px){.nav-center{display:none}.nav{padding:14px 20px}.brand img{width:42px;height:42px}.brand span{font-size:17px}}
+main{max-width:860px;margin:0 auto;padding:180px 32px 120px}
+.doc-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.doc-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(94,234,212,.2),0 0 20px rgba(94,234,212,.7)}
+main h1{font-size:clamp(44px,7vw,84px);line-height:1;letter-spacing:-.035em;font-weight:700;color:#fff;margin:20px 0 20px;text-wrap:balance}
+main h1 .hl{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.doc-meta{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+main h2{font-size:clamp(24px,3vw,32px);color:#fff;font-weight:600;margin:56px 0 14px;letter-spacing:-.015em}
+main .lead{font-size:20px;line-height:1.55;color:var(--ink);margin-bottom:20px;max-width:720px}
+main p{font-size:17px;line-height:1.7;color:var(--ink);margin-bottom:18px}
+main a.inline{color:var(--cyan);border-bottom:1px solid rgba(0,229,199,.3)}
+main a.inline:hover{border-bottom-color:var(--cyan)}
+.cta-line{margin-top:56px;padding:32px;border:1px solid var(--line-strong);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-line h3{font-size:22px;color:#fff;font-weight:600}
+.cta-line p{margin:4px 0 0;font-size:14px;color:var(--ink-dim)}
+.btn-primary{padding:14px 24px;background:var(--brand-grad);color:var(--navy-0);font-weight:600;font-size:14px;border-radius:999px;white-space:nowrap}
+
+footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--line)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px;margin-bottom:48px}
+@media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand{display:flex;align-items:center;gap:16px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.foot-brand img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(79,174,255,.5))}
+.foot-tag{margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:280px;line-height:1.5}
+.foot-col h5{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px}
+.foot-col a{display:block;padding:6px 0;color:var(--ink);font-size:14px}
+.foot-col a:hover{color:var(--cyan)}
+.foot-bot{padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);flex-wrap:wrap;gap:16px}
+@media (max-width:768px){main{padding:130px 20px 80px}.foot-bot{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="/index.html" class="brand"><img src="assets/boavix-b-logo.png" alt=""><span>BOAVIX</span></a>
+  <div class="nav-center">
+    <a href="/index.html#signal" data-t="nav.signal">La Señal</a>
+    <a href="/index.html#pillars" data-t="nav.pillars">Infraestructura</a>
+    <a href="/index.html#product" data-t="nav.product">Producto</a>
+    <a href="/index.html#investors" data-t="nav.investors">Inversionistas</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
+    <a href="/index.html#waitlist" class="cta-ghost" data-t="nav.cta">Solicitar Acceso</a>
+  </div>
+</nav>
+
+<main>
+  <div class="doc-eyebrow" data-t="doc.eb">— Acerca de BOAVIX</div>
+  <h1 data-t-html="a.h">Infraestructura financiera <span class="hl">para Latinoamérica.</span></h1>
+  <div class="doc-meta" data-t="a.meta">Fundada en 2025 · Caracas ↔ Miami</div>
+
+  <p class="lead" data-t="a.lead">BOAVIX es una compañía de infraestructura financiera que empieza en Venezuela para llegar a toda Latinoamérica. Construimos los rieles sobre los que debería correr el dinero en el hemisferio — no solo una app más sobre rieles ajenos.</p>
+
+  <h2 data-t="a.s1h">Por qué existimos</h2>
+  <p data-t="a.s1p1">El sistema financiero que conoce Latinoamérica hoy no fue diseñado para la forma en que la gente realmente vive. Millones mueven dinero entre países todos los días y cada vez pagan un impuesto invisible: tarifas altas, tiempos de liquidación de días, infraestructura construida hace medio siglo.</p>
+  <p data-t="a.s1p2">Creemos que el acceso financiero no debería ser un privilegio de la geografía. BOAVIX nace para cerrar esa brecha, con ingeniería seria y una visión regional clara.</p>
+
+  <h2 data-t="a.s2h">Qué problema resolvemos</h2>
+  <p data-t="a.s2p">Empezamos por el dolor más visible: las remesas. En LATAM se mueven más de 155 mil millones de dólares al año en envíos entre países, casi todos sobre rieles de los 70s. Cada $100 enviado pierde más de seis dólares en el camino, sin explicación. Ese delta — entre lo que el sistema cobra y lo que debería costar — es lo que estamos eliminando.</p>
+
+  <h2 data-t="a.s3h">Por qué Latinoamérica</h2>
+  <p data-t="a.s3p">Latinoamérica no es un mercado secundario. Es una región con más de 650 millones de personas, economías conectadas y una diáspora activa que sostiene familias enteras con transferencias transfronterizas. La infraestructura financiera de la región ha sido tratada como un apéndice de rieles construidos en otros lugares. Nos proponemos cambiar eso.</p>
+
+  <h2 data-t="a.s4h">Por qué Venezuela primero</h2>
+  <p data-t="a.s4p">Venezuela concentra la mayor diáspora activa del hemisferio — casi 9 millones de personas viviendo fuera del país — y el corredor financiero más exigente de la región. Si la infraestructura funciona ahí, funciona en cualquier parte. Venezuela no es una prueba simbólica: es la prueba más dura posible de la tesis.</p>
+
+  <h2 data-t="a.s5h">Qué estamos construyendo</h2>
+  <p data-t="a.s5p1">Empezamos por remesas porque es el punto de entrada más urgente. Pero BOAVIX no es una app de remesas. Es una capa de infraestructura financiera — con identidad portable, historial que te pertenece y acceso a capital — diseñada para desplegarse por oleadas a lo largo del hemisferio.</p>
+  <p data-t="a.s5p2">Lo construimos con seriedad institucional y honestidad de producto: lo que prometemos, lo entregamos; lo que no, no lo prometemos todavía.</p>
+
+  <h2 data-t="a.s6h">La voz y el equipo</h2>
+  <p data-t="a.s6p">Somos un equipo de ingenieros, economistas y diseñadores con raíces latinoamericanas. Vivimos el sistema roto desde adentro — familias separadas, remesas perdidas, identidades financieras borradas al cruzar una frontera. BOAVIX no es una idea abstracta. Es el producto que necesitábamos que existiera.</p>
+
+  <div class="cta-line">
+    <div>
+      <h3 data-t="a.ctah">¿Quieres ser parte del cambio?</h3>
+      <p data-t="a.ctap">Los primeros 1,000 entran primero — con $10 de crédito al lanzamiento.</p>
+    </div>
+    <a href="/index.html#waitlist" class="btn-primary" data-t="a.ctab">Solicitar acceso</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/boavix-b-logo.png" alt=""><span>BOAVIX</span></div>
+        <div class="foot-tag" data-t="ft.tag">Conectando Latinoamérica con el mundo.</div>
+      </div>
+      <div class="foot-col"><h5 data-t="ft.c1">Producto</h5>
+        <a href="/index.html#signal" data-t="ft.c1a">La Señal</a>
+        <a href="/index.html#pillars" data-t="ft.c1b">Infraestructura</a>
+        <a href="/index.html#product" data-t="ft.c1c">Preview</a></div>
+      <div class="foot-col"><h5 data-t="ft.c2">Compañía</h5>
+        <a href="/nosotros.html" data-t="ft.c2a">Acerca de nosotros</a>
+        <a href="/index.html#investors" data-t="ft.c2b">Inversionistas</a>
+        <a href="/memorandum.html" data-t="ft.c2c">Memorándum del equipo</a>
+        <a href="mailto:info@boavix.com">info@boavix.com</a></div>
+      <div class="foot-col"><h5 data-t="ft.c3">Acceso</h5>
+        <a href="/index.html#waitlist" data-t="ft.c3a">Solicitar lista</a>
+        <a href="/terminos.html" data-t="ft.c3b">Términos</a>
+        <a href="/privacidad.html" data-t="ft.c3c">Privacidad</a></div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 BOAVIX — <span data-t="ft.all">Todos los derechos reservados</span></div>
+      <div data-t="ft.built">Conectando Latinoamérica con el mundo</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DICT={
+  es:{
+    "nav.signal":"La Señal","nav.pillars":"Infraestructura","nav.product":"Producto","nav.investors":"Inversionistas","nav.cta":"Solicitar Acceso",
+    "doc.eb":"— Acerca de BOAVIX","a.h":'Infraestructura financiera <span class="hl">para Latinoamérica.</span>',
+    "a.meta":"Fundada en 2025 · Caracas ↔ Miami",
+    "a.lead":"BOAVIX es una compañía de infraestructura financiera que empieza en Venezuela para llegar a toda Latinoamérica. Construimos los rieles sobre los que debería correr el dinero en el hemisferio — no solo una app más sobre rieles ajenos.",
+    "a.s1h":"Por qué existimos","a.s1p1":"El sistema financiero que conoce Latinoamérica hoy no fue diseñado para la forma en que la gente realmente vive. Millones mueven dinero entre países todos los días y cada vez pagan un impuesto invisible: tarifas altas, tiempos de liquidación de días, infraestructura construida hace medio siglo.","a.s1p2":"Creemos que el acceso financiero no debería ser un privilegio de la geografía. BOAVIX nace para cerrar esa brecha, con ingeniería seria y una visión regional clara.",
+    "a.s2h":"Qué problema resolvemos","a.s2p":"Empezamos por el dolor más visible: las remesas. En LATAM se mueven más de 155 mil millones de dólares al año en envíos entre países, casi todos sobre rieles de los 70s. Cada $100 enviado pierde más de seis dólares en el camino, sin explicación. Ese delta — entre lo que el sistema cobra y lo que debería costar — es lo que estamos eliminando.",
+    "a.s3h":"Por qué Latinoamérica","a.s3p":"Latinoamérica no es un mercado secundario. Es una región con más de 650 millones de personas, economías conectadas y una diáspora activa que sostiene familias enteras con transferencias transfronterizas. La infraestructura financiera de la región ha sido tratada como un apéndice de rieles construidos en otros lugares. Nos proponemos cambiar eso.",
+    "a.s4h":"Por qué Venezuela primero","a.s4p":"Venezuela concentra la mayor diáspora activa del hemisferio — casi 9 millones de personas viviendo fuera del país — y el corredor financiero más exigente de la región. Si la infraestructura funciona ahí, funciona en cualquier parte. Venezuela no es una prueba simbólica: es la prueba más dura posible de la tesis.",
+    "a.s5h":"Qué estamos construyendo","a.s5p1":"Empezamos por remesas porque es el punto de entrada más urgente. Pero BOAVIX no es una app de remesas. Es una capa de infraestructura financiera — con identidad portable, historial que te pertenece y acceso a capital — diseñada para desplegarse por oleadas a lo largo del hemisferio.","a.s5p2":"Lo construimos con seriedad institucional y honestidad de producto: lo que prometemos, lo entregamos; lo que no, no lo prometemos todavía.",
+    "a.s6h":"La voz y el equipo","a.s6p":"Somos un equipo de ingenieros, economistas y diseñadores con raíces latinoamericanas. Vivimos el sistema roto desde adentro — familias separadas, remesas perdidas, identidades financieras borradas al cruzar una frontera. BOAVIX no es una idea abstracta. Es el producto que necesitábamos que existiera.",
+    "a.ctah":"¿Quieres ser parte del cambio?","a.ctap":"Los primeros 1,000 entran primero — con $10 de crédito al lanzamiento.","a.ctab":"Solicitar acceso",
+    "ft.tag":"Conectando Latinoamérica con el mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview","ft.c2":"Compañía","ft.c2a":"Acerca de nosotros","ft.c2b":"Inversionistas","ft.c2c":"Memorándum del equipo","ft.c3":"Acceso","ft.c3a":"Solicitar lista","ft.c3b":"Términos","ft.c3c":"Privacidad","ft.all":"Todos los derechos reservados","ft.built":"Conectando Latinoamérica con el mundo",
+    "page.title":"BOAVIX — Acerca de nosotros"
+  },
+  en:{
+    "nav.signal":"The Signal","nav.pillars":"Infrastructure","nav.product":"Product","nav.investors":"Investors","nav.cta":"Request Access",
+    "doc.eb":"— About BOAVIX","a.h":'Financial infrastructure <span class="hl">for Latin America.</span>',
+    "a.meta":"Founded 2025 · Caracas ↔ Miami",
+    "a.lead":"BOAVIX is a financial-infrastructure company that starts in Venezuela and reaches across Latin America. We're building the rails money should run on in the hemisphere — not just another app riding someone else's rails.",
+    "a.s1h":"Why we exist","a.s1p1":"The financial system Latin America knows today wasn't designed for the way people actually live. Millions move money across countries every day and pay an invisible tax every time: high fees, multi-day settlement, infrastructure built half a century ago.","a.s1p2":"We believe financial access shouldn't be a privilege of geography. BOAVIX was born to close that gap, with serious engineering and a clear regional vision.",
+    "a.s2h":"What we solve","a.s2p":"We start with the most visible pain: remittances. In LATAM, more than $155 billion a year moves across borders — almost all of it on 1970s rails. For every $100 sent, more than six dollars disappear along the way, without explanation. That delta — between what the system charges and what it should cost — is what we're eliminating.",
+    "a.s3h":"Why Latin America","a.s3p":"Latin America is not a secondary market. It's a region of more than 650 million people, interconnected economies and an active diaspora that supports entire families with cross-border transfers. The region's financial infrastructure has been treated as an afterthought on rails built elsewhere. We intend to change that.",
+    "a.s4h":"Why Venezuela first","a.s4p":"Venezuela holds the largest active diaspora in the hemisphere — nearly 9 million people living outside the country — and the region's most demanding financial corridor. If the infrastructure works there, it works anywhere. Venezuela isn't a symbolic test; it's the hardest possible test of the thesis.",
+    "a.s5h":"What we're building","a.s5p1":"We start with remittances because it's the most urgent entry point. But BOAVIX is not a remittance app. It's a layer of financial infrastructure — with portable identity, history that belongs to you, and access to capital — designed to roll out in waves across the hemisphere.","a.s5p2":"We build it with institutional seriousness and product honesty: what we promise, we deliver; what we don't, we don't promise yet.",
+    "a.s6h":"The voice and the team","a.s6p":"We're a team of engineers, economists and designers with Latin American roots. We lived the broken system from the inside — families separated, remittances lost to middlemen, financial identities erased at the border. BOAVIX is not an abstract idea. It's the product we needed to exist.",
+    "a.ctah":"Want to be part of the change?","a.ctap":"The first 1,000 get in first — with $10 launch credit.","a.ctab":"Request access",
+    "ft.tag":"Connecting Latin America with the world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview","ft.c2":"Company","ft.c2a":"About us","ft.c2b":"Investors","ft.c2c":"Team memo","ft.c3":"Access","ft.c3a":"Join waitlist","ft.c3b":"Terms","ft.c3c":"Privacy","ft.all":"All rights reserved","ft.built":"Connecting Latin America with the world",
+    "page.title":"BOAVIX — About us"
+  }
+};
+let LANG=(localStorage.getItem('boavixLang')==='en')?'en':'es';
+function apply(){
+  document.documentElement.lang=LANG;localStorage.setItem('boavixLang',LANG);
+  document.querySelectorAll('[data-t]').forEach(el=>{const k=el.getAttribute('data-t'),v=(DICT[LANG]||{})[k];if(v!=null)el.textContent=v;});
+  document.querySelectorAll('[data-t-html]').forEach(el=>{const k=el.getAttribute('data-t-html'),v=(DICT[LANG]||{})[k];if(v!=null)el.innerHTML=v;});
+  document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.lang===LANG));
+  if(DICT[LANG]["page.title"])document.title=DICT[LANG]["page.title"];
+}
+document.querySelectorAll('.lang-toggle button').forEach(b=>b.addEventListener('click',()=>{LANG=b.dataset.lang;apply();}));
+apply();
+addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>30),{passive:true});
+</script>
+</body>
+</html>
