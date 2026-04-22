@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0E2B">
 <title>BOAVIX — El acceso no debería depender de dónde vienes</title>
 <meta name="description" content="BOAVIX está construyendo una nueva forma de mover dinero en las Américas. Solicita acceso anticipado y sé parte de los primeros 1,000.">
 <meta property="og:title" content="BOAVIX — El acceso no debería depender de dónde vienes">
@@ -253,6 +255,16 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
   .foot-brand{font-size:32px;gap:8px}
   .foot-brand img{width:80px;height:80px}
   .foot-bot{flex-direction:column;align-items:flex-start}
+
+  /* Dark-mode contrast refinement (mobile only) */
+  :root{--ink-dim:#B2BDD5}
+  body{color:#E9ECF5}
+  .hero-map{opacity:.68}
+  .hero-map::after{background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(10,14,43,.35),rgba(10,14,43,.9) 75%),linear-gradient(180deg,rgba(10,14,43,.7) 0%,rgba(10,14,43,.3) 40%,rgba(10,14,43,.95) 100%)}
+  .hero-title .hl,h2 .hl,.grad-text{background:linear-gradient(135deg,#2AF0D8 0%,#7CC5FF 50%,#D079FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .eyebrow,.num,.foot-col h5,.foot-tag,.foot-bot,.ur-eyebrow,.doc-eyebrow{font-weight:500}
+  .hero-sub,.signal-body p,.pillar p,.big-num .d,main p{color:#D9DFEF}
+  .delta .lbl,.delta-head,.num-cap{color:#B2BDD5}
 }
 </style>
 </head>
