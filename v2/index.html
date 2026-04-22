@@ -56,7 +56,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* NAV — scaled ~1.5x, logo ~3x, larger nav items */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(10,14,43,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2em;font-size:33px;color:var(--white)}
+.brand{display:flex;align-items:center;gap:4px;font-weight:700;letter-spacing:.2em;font-size:33px;color:var(--white)}
 .brand img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(79,174,255,.45))}
 .nav-center{display:flex;gap:32px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
 .nav-center a{transition:color .2s}
@@ -215,7 +215,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 .foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px;margin-bottom:48px}
 @media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
-.foot-brand{display:flex;align-items:center;gap:10px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--white)}
+.foot-brand{display:flex;align-items:center;gap:4px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--white)}
 .foot-brand img{width:128px;height:128px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(79,174,255,.5))}
 .foot-tag{margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:440px;line-height:1.55}
 .foot-col h5{font-family:var(--f-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;font-weight:600}
@@ -475,7 +475,6 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
     <div class="foot-grid">
       <div>
         <div class="foot-brand"><img src="assets/boavix-b-logo.png" alt=""><span>BOAVIX</span></div>
-        <div class="foot-tag" data-t="ft.tag">Conectando Latinoamérica con el mundo.</div>
       </div>
       <div class="foot-col">
         <h5 data-t="ft.c1">Producto</h5>
