@@ -54,10 +54,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .grad-text{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
 /* NAV — scaled ~1.5x, logo ~3x, larger nav items */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(10,14,43,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line)}
-.brand{display:flex;align-items:center;gap:18px;font-weight:700;letter-spacing:.2em;font-size:33px;color:var(--white)}
-.brand img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(79,174,255,.45))}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2em;font-size:33px;color:var(--white)}
+.brand img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(79,174,255,.45))}
 .nav-center{display:flex;gap:32px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
 .nav-center a{transition:color .2s}
 .nav-center a:hover{color:var(--ink)}
@@ -67,14 +67,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .lang-toggle button.active{background:var(--brand-grad);color:var(--navy-0);font-weight:600}
 .cta-ghost{padding:12px 22px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:all .2s;color:var(--ink)}
 .cta-ghost:hover{background:var(--white);color:var(--navy-0);border-color:var(--white)}
-@media (max-width:960px){.nav-center{display:none}.nav{padding:14px 20px}.brand{gap:12px;font-size:22px}.brand img{width:56px;height:56px}}
+@media (max-width:960px){.nav-center{display:none}.nav{padding:10px 20px}.brand{gap:8px;font-size:22px}.brand img{width:80px;height:80px}}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;overflow:hidden;isolation:isolate;background:var(--navy-1)}
 .hero-map{position:absolute;inset:0;z-index:0;background-image:url("assets/hero-map.png");background-image:-webkit-image-set(url("assets/hero-map.webp") type("image/webp"), url("assets/hero-map.png") type("image/png"));background-image:image-set(url("assets/hero-map.webp") type("image/webp"), url("assets/hero-map.png") type("image/png"));background-size:cover;background-position:center;opacity:.92}
 .hero-map::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(10,14,43,.2),rgba(10,14,43,.88) 75%),linear-gradient(180deg,rgba(10,14,43,.55) 0%,rgba(10,14,43,.1) 40%,rgba(10,14,43,.9) 100%)}
 .hero-grid-lines{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.35;background-image:linear-gradient(to right,rgba(0,229,199,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,229,199,.06) 1px,transparent 1px);background-size:96px 96px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,#000 20%,transparent 90%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,#000 20%,transparent 90%)}
-.hero-inner{position:relative;z-index:3;max-width:1440px;margin:0 auto;padding:180px 40px 120px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:60px}
+.hero-inner{position:relative;z-index:3;max-width:1440px;margin:0 auto;padding:220px 40px 120px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:60px}
 .hero-top{max-width:940px}
 /* Refinement 2: eyebrow slightly larger, mint/teal green tone */
 .hero-eyebrow{margin-bottom:32px;font-size:14px;color:var(--mint)}
@@ -215,10 +215,10 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 .foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px;margin-bottom:48px}
 @media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
-.foot-brand{display:flex;align-items:center;gap:16px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--white)}
-.foot-brand img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(79,174,255,.5))}
-.foot-tag{margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:280px;line-height:1.5}
-.foot-col h5{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px}
+.foot-brand{display:flex;align-items:center;gap:10px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--white)}
+.foot-brand img{width:128px;height:128px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(79,174,255,.5))}
+.foot-tag{margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:440px;line-height:1.55}
+.foot-col h5{font-family:var(--f-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;font-weight:600}
 .foot-col a{display:block;padding:6px 0;color:var(--ink);font-size:14px;transition:color .2s}
 .foot-col a:hover{color:var(--cyan)}
 .foot-bot{padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);flex-wrap:wrap;gap:16px}
@@ -241,8 +241,8 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
   .pillar{min-height:auto;padding:32px 24px}
   .pillar h3{min-height:auto}
   .big-num{padding:28px 20px}
-  .foot-brand{font-size:32px}
-  .foot-brand img{width:52px;height:52px}
+  .foot-brand{font-size:32px;gap:8px}
+  .foot-brand img{width:80px;height:80px}
   .foot-bot{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -550,10 +550,10 @@ const DICT = {
     "inv.eb":"Inversionistas","inv.h":'Construimos infraestructura financiera <span class="grad-text">para Latinoamérica.</span>',
     "inv.p":'Si compartes nuestra visión de un sistema financiero sin fronteras — comenzando en Venezuela — <span class="inv-talk">hablemos.</span>',
     "inv.deck":"Memorándum del equipo",
-    "ft.tag":"Conectando Latinoamérica con el mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
+    "ft.tag":"Conectando Latinoamérica con el\u00a0mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
     "ft.c2":"Compañía","ft.c2a":"Acerca de nosotros","ft.c2b":"Inversionistas","ft.c2c":"Memorándum del equipo",
     "ft.c3":"Acceso","ft.c3a":"Solicitar lista","ft.c3b":"Términos","ft.c3c":"Privacidad",
-    "ft.all":"Todos los derechos reservados","ft.built":"Conectando Latinoamérica con el mundo"
+    "ft.all":"Todos los derechos reservados","ft.built":"Conectando Latinoamérica con el\u00a0mundo"
   },
   en: {
     "nav.signal":"The Signal","nav.pillars":"Infrastructure","nav.product":"Product","nav.investors":"Investors","nav.cta":"Request Access",
@@ -598,10 +598,10 @@ const DICT = {
     "inv.eb":"Investors","inv.h":'We build financial infrastructure <span class="grad-text">for Latin America.</span>',
     "inv.p":'If you share our vision of a borderless financial system — starting in Venezuela — <span class="inv-talk">let\u2019s talk.</span>',
     "inv.deck":"Team memo",
-    "ft.tag":"Connecting Latin America with the world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
+    "ft.tag":"Connecting Latin America with the\u00a0world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
     "ft.c2":"Company","ft.c2a":"About us","ft.c2b":"Investors","ft.c2c":"Team memo",
     "ft.c3":"Access","ft.c3a":"Join waitlist","ft.c3b":"Terms","ft.c3c":"Privacy",
-    "ft.all":"All rights reserved","ft.built":"Connecting Latin America with the world"
+    "ft.all":"All rights reserved","ft.built":"Connecting Latin America with the\u00a0world"
   }
 };
 

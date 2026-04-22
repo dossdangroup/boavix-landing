@@ -18,10 +18,10 @@ body{font-size:16px;line-height:1.6;letter-spacing:-.005em}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(10,14,43,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line)}
-.brand{display:flex;align-items:center;gap:16px;font-weight:700;letter-spacing:.2em;font-size:22px;color:#fff}
-.brand img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(79,174,255,.4))}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2em;font-size:33px;color:#fff}
+.brand img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(79,174,255,.45))}
 .nav-center{display:flex;gap:32px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
 .nav-center a{transition:color .2s}.nav-center a:hover{color:var(--ink)}
 .nav-right{display:flex;align-items:center;gap:18px}
@@ -30,7 +30,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .lang-toggle button.active{background:var(--brand-grad);color:var(--navy-0);font-weight:600}
 .cta-ghost{padding:12px 22px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:all .2s;color:var(--ink)}
 .cta-ghost:hover{background:#fff;color:var(--navy-0);border-color:#fff}
-@media (max-width:960px){.nav-center{display:none}.nav{padding:14px 20px}.brand img{width:42px;height:42px}.brand span{font-size:17px}}
+@media (max-width:960px){.nav-center{display:none}.nav{padding:10px 20px}.brand{gap:8px;font-size:22px}.brand img{width:80px;height:80px}}
 
 main{max-width:820px;margin:0 auto;padding:180px 32px 120px}
 .doc-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
@@ -51,10 +51,10 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 .foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px;margin-bottom:48px}
 @media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
-.foot-brand{display:flex;align-items:center;gap:16px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:#fff}
-.foot-brand img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(79,174,255,.5))}
-.foot-tag{margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:280px;line-height:1.5}
-.foot-col h5{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px}
+.foot-brand{display:flex;align-items:center;gap:10px;font-size:42px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.foot-brand img{width:128px;height:128px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(79,174,255,.5))}
+.foot-tag{margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);max-width:440px;line-height:1.55}
+.foot-col h5{font-family:var(--f-mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;font-weight:600}
 .foot-col a{display:block;padding:6px 0;color:var(--ink);font-size:14px;transition:color .2s}
 .foot-col a:hover{color:var(--cyan)}
 .foot-bot{padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);flex-wrap:wrap;gap:16px}
@@ -167,10 +167,10 @@ const DICT = {
     "memo.s5p1":"Estamos construyendo una compañía de infraestructura financiera seria, con ambición hemisférica, empezando con el corredor más difícil del continente. Los primeros 1,000 usuarios no son un truco de marketing — son la primera capa de una red que no existe todavía.",
     "memo.s5p2":'Si compartes esta tesis, queremos saber de ti. Contáctanos: <a class="inline" href="mailto:investors@boavix.com">investors@boavix.com</a>',
     "memo.sig":"— <b>Arnaldo Dos Santos</b>, CEO",
-    "ft.tag":"Conectando Latinoamérica con el mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
+    "ft.tag":"Conectando Latinoamérica con el\u00a0mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
     "ft.c2":"Compañía","ft.c2a":"Acerca de nosotros","ft.c2b":"Inversionistas","ft.c2c":"Memorándum del equipo",
     "ft.c3":"Acceso","ft.c3a":"Solicitar lista","ft.c3b":"Términos","ft.c3c":"Privacidad",
-    "ft.all":"Todos los derechos reservados","ft.built":"Conectando Latinoamérica con el mundo"
+    "ft.all":"Todos los derechos reservados","ft.built":"Conectando Latinoamérica con el\u00a0mundo"
   },
   en: {
     "page.title":"BOAVIX — Team Memo",
@@ -196,10 +196,10 @@ const DICT = {
     "memo.s5p1":"We're building a serious financial-infrastructure company with hemispheric ambition, starting with the hardest corridor on the continent. The first 1,000 users are not a marketing gimmick — they're the first layer of a network that doesn't exist yet.",
     "memo.s5p2":'If you share this thesis, we want to hear from you. Contact us: <a class="inline" href="mailto:investors@boavix.com">investors@boavix.com</a>',
     "memo.sig":"— <b>Arnaldo Dos Santos</b>, CEO",
-    "ft.tag":"Connecting Latin America with the world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
+    "ft.tag":"Connecting Latin America with the\u00a0world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
     "ft.c2":"Company","ft.c2a":"About us","ft.c2b":"Investors","ft.c2c":"Team memo",
     "ft.c3":"Access","ft.c3a":"Join waitlist","ft.c3b":"Terms","ft.c3c":"Privacy",
-    "ft.all":"All rights reserved","ft.built":"Connecting Latin America with the world"
+    "ft.all":"All rights reserved","ft.built":"Connecting Latin America with the\u00a0world"
   }
 };
 let LANG = (localStorage.getItem('boavixLang')==='en')?'en':'es';
