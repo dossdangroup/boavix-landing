@@ -1,0 +1,10 @@
+# robots.txt for BOAVIX
+# https://www.boavix.com
+
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /private/
+Disallow: /*.json$
+
+Sitemap: https://www.boavix.com/sitemap.xml
