@@ -61,8 +61,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .brand{display:flex;align-items:center;gap:4px;font-weight:700;letter-spacing:.2em;font-size:33px;color:var(--white)}
 .brand img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(79,174,255,.45))}
 .nav-center{display:flex;gap:32px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
-.nav-center a{transition:color .2s}
+.nav-center a{position:relative;transition:color .2s}
 .nav-center a:hover{color:var(--ink)}
+.nav-center a.active{color:var(--mint)}
+.nav-center a.active::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:linear-gradient(90deg,var(--mint),var(--cyan));border-radius:2px;box-shadow:0 0 12px rgba(94,234,212,.45)}
 .nav-right{display:flex;align-items:center;gap:18px}
 .lang-toggle{display:flex;border:1px solid var(--line-strong);border-radius:999px;padding:3px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em}
 .lang-toggle button{padding:6px 13px;border-radius:999px;color:var(--ink-dim);transition:all .2s}
@@ -758,6 +760,40 @@ form.addEventListener('submit', async (e)=>{
     btn.textContent = original;
   }
 });
+
+// ── Scrollspy: highlight nav item for current section ──
+(function(){
+  const links = {
+    signal:    document.querySelector('.nav-center a[href="#signal"]'),
+    pillars:   document.querySelector('.nav-center a[href="#pillars"]'),
+    product:   document.querySelector('.nav-center a[href="#product"]'),
+    investors: document.querySelector('.nav-center a[href="#investors"]')
+  };
+  const sections = Object.keys(links).map(id => document.getElementById(id)).filter(Boolean);
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  function clearAll(){ Object.values(links).forEach(a => a && a.classList.remove('active')); }
+  function setActive(id){ clearAll(); const l = links[id]; if (l) l.classList.add('active'); }
+
+  // Top rootMargin matches the fixed nav header height; bottom excludes the
+  // lower 55% so the "active" section is whichever one owns the top ~45% of viewport.
+  const io = new IntersectionObserver((entries) => {
+    // Prefer the section with the highest intersection ratio among intersecting ones.
+    let best = null;
+    entries.forEach(e => {
+      if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+    });
+    if (best) setActive(best.target.id);
+  }, { rootMargin: '-110px 0px -55% 0px', threshold: [0, 0.15, 0.3, 0.5] });
+
+  sections.forEach(s => io.observe(s));
+
+  // Click handler — immediate active state, then scroll follows
+  Object.entries(links).forEach(([id, el]) => {
+    if (!el) return;
+    el.addEventListener('click', () => setActive(id));
+  });
+})();
 </script>
 </body>
 </html>
