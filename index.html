@@ -6,9 +6,9 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0A0E2B">
 <title>BOAVIX — La capa financiera para Venezuela y su diáspora</title>
-<meta name="description" content="BOAVIX es la fintech de remesas stablecoin-nativas para el corredor Venezuela–Canadá–Estados Unidos. Enviar dólares en 30 segundos, 1% de comisión. Solicita acceso anticipado.">
+<meta name="description" content="BOAVIX es la fintech de remesas stablecoin-nativas para el corredor Venezuela–Canadá–Estados Unidos. Enviar dólares en 30 segundos, 1%–2% de comisión. Solicita acceso anticipado.">
 <meta property="og:title" content="BOAVIX — La capa financiera para Venezuela y su diáspora">
-<meta property="og:description" content="Fintech de remesas stablecoin-nativas para Venezuela–Canadá–Estados Unidos. 30s, 1% de comisión, sin calendarios bancarios.">
+<meta property="og:description" content="Fintech de remesas stablecoin-nativas para Venezuela–Canadá–Estados Unidos. 30s, 1%–2% de comisión, sin calendarios bancarios.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.boavix.com/">
 <meta property="og:image" content="https://www.boavix.com/assets/boavix-b-logo.png">
@@ -156,6 +156,17 @@ section{position:relative}
 .pillar-glyph svg{width:34px;height:34px;stroke:url(#brandg);fill:none;stroke-width:1.6}
 .pillar h3{font-size:24px;line-height:1.2;letter-spacing:-.01em;color:var(--white);font-weight:600;margin-bottom:14px;text-wrap:balance;min-height:2.4em}
 .pillar p{color:var(--ink-dim);font-size:15px;line-height:1.55;flex:1}
+.compliance{padding:96px 0;background:var(--navy-1);position:relative}
+.compliance::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(0,229,199,.06),transparent 70%);pointer-events:none}
+.compliance .wrap{position:relative}
+.compliance-card{max-width:880px;margin:0 auto;padding:48px 44px;border:1px solid var(--line-strong);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.compliance-eb{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.compliance-eb::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,229,199,.18)}
+.compliance h3{font-size:clamp(24px,3vw,32px);color:#fff;font-weight:600;letter-spacing:-.015em;line-height:1.2;margin-bottom:18px;text-wrap:balance}
+.compliance p{font-size:16px;line-height:1.65;color:var(--ink);max-width:760px}
+.compliance .juris{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.compliance .juris span{padding:6px 12px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+@media (max-width:768px){.compliance{padding:64px 0}.compliance-card{padding:32px 24px}}
 
 /* NUMBERS */
 .numbers{padding:110px 0;background:var(--navy-0);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
@@ -280,7 +291,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 <meta property="og:locale" content="es_VE">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:title" content="BOAVIX — La capa financiera para Venezuela y su diáspora">
-<meta name="twitter:description" content="Fintech de remesas stablecoin-nativas para Venezuela–Canadá–Estados Unidos. 30s, 1% de comisión, sin calendarios bancarios.">
+<meta name="twitter:description" content="Fintech de remesas stablecoin-nativas para Venezuela–Canadá–Estados Unidos. 30s, 1%–2% de comisión, sin calendarios bancarios.">
 <meta name="twitter:image" content="https://www.boavix.com/assets/boavix-b-logo.png">
 <meta name="author" content="BOAVIX · Dossdan Group">
 <meta name="publisher" content="Dossdan Group">
@@ -311,11 +322,11 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
   "provider":{"@id":"https://www.boavix.com/#organization"},
   "url":"https://www.boavix.com/",
   "serviceType":"Cross-border stablecoin remittance",
-  "description":"Red de remesas stablecoin-nativas entre Venezuela, Canadá y Estados Unidos. Liquidación en 30 segundos, 1% de comisión.",
+  "description":"Red de remesas stablecoin-nativas entre Venezuela, Canadá y Estados Unidos. Liquidación en 30 segundos, 1%–2% de comisión.",
   "areaServed":[{"@type":"Country","name":"Venezuela"},{"@type":"Country","name":"Canada"},{"@type":"Country","name":"United States"}],
   "audience":{"@type":"Audience","audienceType":"Venezuelan diaspora"},
   "offers":{"@type":"Offer","name":"Early Access Beta","availability":"https://schema.org/PreOrder"},
-  "feesAndCommissionsSpecification":"1% de comisión sobre el monto enviado."
+  "feesAndCommissionsSpecification":"1%–2% de comisión sobre el monto enviado."
 }
 </script>
 <script type="application/ld+json">
@@ -363,10 +374,10 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
     <div class="hero-top">
       <div class="eyebrow hero-eyebrow" data-t="hero.eyebrow">Infraestructura de dinero para las Américas</div>
       <h1 class="hero-title" data-t-html="hero.title">La capa financiera<br>que <span class="hl">Venezuela</span> nunca tuvo.</h1>
-      <p class="hero-sub" data-t-html="hero.sub"><b>BOAVIX</b> es la fintech stablecoin-nativa para enviar dinero a Venezuela desde Canadá y Estados Unidos. Remesas en 30 segundos, 1% de comisión, sin calendarios bancarios — para los 8.9 millones de venezolanos fuera del país y las familias que dependen de ellos.</p>
+      <p class="hero-sub" data-t-html="hero.sub"><b>BOAVIX</b> es la fintech stablecoin-nativa para enviar dinero a Venezuela desde Canadá y Estados Unidos. Remesas en 30 segundos, 1%–2% de comisión, sin calendarios bancarios — para los 8.9 millones de venezolanos fuera del país y las familias que dependen de ellos.</p>
       <div class="hero-cta">
-        <a href="#waitlist" class="btn-primary"><span data-t="hero.cta">Reservar mi número de invitado</span> <span class="arrow">→</span></a>
-        <span class="hero-meta"><span class="dot"></span><span data-t="hero.meta">1.047 ya registrados · 47 esta semana · Tu número de invitado es tu posición en cola · Lanzamiento Q3 2026</span></span>
+        <a href="#waitlist" class="btn-primary"><span data-t="hero.cta">Solicitar acceso anticipado</span> <span class="arrow">→</span></a>
+        <span class="hero-meta"><span class="dot"></span><span data-t="hero.meta">Acceso anticipado próximamente</span></span>
       </div>
     </div>
     <div class="hero-bottom">
@@ -445,6 +456,21 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 </section>
 
 <!-- NUMBERS (Refinement 10) -->
+<section class="compliance" id="compliance">
+  <div class="wrap">
+    <div class="compliance-card reveal">
+      <div class="compliance-eb" data-t="comp.eb">— Cumplimiento</div>
+      <h3 data-t="comp.h">Diseñada para cumplimiento en tres jurisdicciones</h3>
+      <p data-t="comp.p">BOAVIX está siendo construida desde el primer día con una ruta regulatoria clara: Canadá, Estados Unidos y Venezuela. Nuestro objetivo es operar bajo registros y marcos aplicables como FINTRAC, FinCEN y SUDEBAN, creando una infraestructura más confiable para mover dinero hacia y desde Latinoamérica.</p>
+      <div class="juris" aria-label="Jurisdicciones">
+        <span data-t="comp.j1">FINTRAC · Canadá</span>
+        <span data-t="comp.j2">FinCEN · Estados Unidos</span>
+        <span data-t="comp.j3">SUDEBAN · Venezuela</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="numbers">
   <div class="wrap">
     <div class="section-head reveal">
@@ -585,8 +611,8 @@ const DICT = {
     "nav.signal":"La Señal","nav.pillars":"Infraestructura","nav.product":"Producto","nav.investors":"Inversionistas","nav.cta":"Solicitar Acceso",
     "hero.eyebrow":"Infraestructura de dinero para las Américas",
     "hero.title":'La capa financiera<br>que <span class="hl">Venezuela</span> nunca tuvo.',
-    "hero.sub":"<b>BOAVIX</b> es la fintech stablecoin-nativa para enviar dinero a Venezuela desde Canadá y Estados Unidos. Remesas en 30 segundos, 1% de comisión, sin calendarios bancarios — para los 8.9 millones de venezolanos fuera del país y las familias que dependen de ellos.",
-    "hero.cta":"Reservar mi número de invitado","hero.meta":"1.047 ya registrados · 47 esta semana · Tu número de invitado es tu posición en cola · Lanzamiento Q3 2026",
+    "hero.sub":"<b>BOAVIX</b> es la fintech stablecoin-nativa para enviar dinero a Venezuela desde Canadá y Estados Unidos. Remesas en 30 segundos, 1%–2% de comisión, sin calendarios bancarios — para los 8.9 millones de venezolanos fuera del país y las familias que dependen de ellos.",
+    "hero.cta":"Solicitar acceso anticipado","hero.meta":"Acceso anticipado próximamente",
     "hero.s1k":"Cupo fundadores","hero.s1d":"Primeros en acceder",
     "hero.s2k":"Crédito de lanzamiento","hero.s2d":"Para los primeros 1,000",
     "hero.s3k":"Corredores activos","hero.s3d":"Canadá, Estados Unidos y Venezuela",
@@ -624,6 +650,7 @@ const DICT = {
     "inv.eb":"Inversionistas","inv.h":'Construimos infraestructura financiera <span class="grad-text">para Latinoamérica.</span>',
     "inv.p":'Si compartes nuestra visión de un sistema financiero sin fronteras — comenzando en Venezuela — <span class="inv-talk">hablemos.</span>',
     "inv.deck":"Memorándum del equipo",
+    "comp.eb":"— Cumplimiento","comp.h":"Diseñada para cumplimiento en tres jurisdicciones","comp.p":"BOAVIX está siendo construida desde el primer día con una ruta regulatoria clara: Canadá, Estados Unidos y Venezuela. Nuestro objetivo es operar bajo registros y marcos aplicables como FINTRAC, FinCEN y SUDEBAN, creando una infraestructura más confiable para mover dinero hacia y desde Latinoamérica.","comp.j1":"FINTRAC · Canadá","comp.j2":"FinCEN · Estados Unidos","comp.j3":"SUDEBAN · Venezuela",
     "ft.tag":"Conectando Latinoamérica con el\u00a0mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
     "ft.c2":"Compañía","ft.c2a":"Acerca de nosotros","ft.c2b":"Inversionistas","ft.c2c":"Memorándum del equipo",
     "ft.c3":"Acceso","ft.c3a":"Solicitar lista","ft.c3b":"Términos","ft.c3c":"Privacidad",
@@ -633,8 +660,8 @@ const DICT = {
     "nav.signal":"The Signal","nav.pillars":"Infrastructure","nav.product":"Product","nav.investors":"Investors","nav.cta":"Request Access",
     "hero.eyebrow":"Money infrastructure for the Americas",
     "hero.title":'The financial layer<br><span class="hl">Venezuela</span> never had.',
-    "hero.sub":"<b>BOAVIX</b> is the stablecoin-native fintech for sending money to Venezuela from Canada and the United States. Remittances in 30 seconds, 1% fee, no banking calendars — for the 8.9 million Venezuelans living abroad and the families who depend on them.",
-    "hero.cta":"Reserve my invite number","hero.meta":"1,047 already registered · 47 this week · Your invite number is your place in line · Public launch Q3 2026",
+    "hero.sub":"<b>BOAVIX</b> is the stablecoin-native fintech for sending money to Venezuela from Canada and the United States. Remittances in 30 seconds, 1%–2% fee, no banking calendars — for the 8.9 million Venezuelans living abroad and the families who depend on them.",
+    "hero.cta":"Request early access","hero.meta":"Early access coming soon",
     "hero.s1k":"Founder spots","hero.s1d":"First to access",
     "hero.s2k":"Launch credit","hero.s2d":"For the first 1,000",
     "hero.s3k":"Active corridors","hero.s3d":"Canada, United States, and Venezuela",
@@ -672,6 +699,7 @@ const DICT = {
     "inv.eb":"Investors","inv.h":'We build financial infrastructure <span class="grad-text">for Latin America.</span>',
     "inv.p":'If you share our vision of a borderless financial system — starting in Venezuela — <span class="inv-talk">let\u2019s talk.</span>',
     "inv.deck":"Team memo",
+    "comp.eb":"— Compliance","comp.h":"Designed for compliance across three jurisdictions","comp.p":"BOAVIX is being built from day one with a clear regulatory path across Canada, the United States, and Venezuela. Our goal is to operate under applicable frameworks and registrations such as FINTRAC, FinCEN, and SUDEBAN, creating a more trusted infrastructure for moving money to and from Latin America.","comp.j1":"FINTRAC · Canada","comp.j2":"FinCEN · United States","comp.j3":"SUDEBAN · Venezuela",
     "ft.tag":"Connecting Latin America with the\u00a0world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
     "ft.c2":"Company","ft.c2a":"About us","ft.c2b":"Investors","ft.c2c":"Team memo",
     "ft.c3":"Access","ft.c3a":"Join waitlist","ft.c3b":"Terms","ft.c3c":"Privacy",
@@ -700,11 +728,11 @@ function applyLang(){
   if (LANG === 'en'){
     document.title = "BOAVIX — The financial layer Venezuela never had";
     const md = document.querySelector('meta[name=description]');
-    if (md) md.setAttribute('content','BOAVIX is the stablecoin-native fintech for sending money to Venezuela from Canada and the United States. Remittances in 30 seconds, 1% fee. Request early access.');
+    if (md) md.setAttribute('content','BOAVIX is the stablecoin-native fintech for sending money to Venezuela from Canada and the United States. Remittances in 30 seconds, 1%–2% fee. Request early access.');
   } else {
     document.title = "BOAVIX — La capa financiera para Venezuela y su diáspora";
     const md = document.querySelector('meta[name=description]');
-    if (md) md.setAttribute('content','BOAVIX es la fintech de remesas stablecoin-nativas para el corredor Venezuela–Canadá–Estados Unidos. Enviar dólares en 30 segundos, 1% de comisión. Solicita acceso anticipado.');
+    if (md) md.setAttribute('content','BOAVIX es la fintech de remesas stablecoin-nativas para el corredor Venezuela–Canadá–Estados Unidos. Enviar dólares en 30 segundos, 1%–2% de comisión. Solicita acceso anticipado.');
   }
 }
 document.querySelectorAll('.lang-toggle button').forEach(b=>{
