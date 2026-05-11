@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0A0E2B">
-<title>BOAVIX — La capa financiera para Venezuela y su diáspora</title>
-<meta name="description" content="BOAVIX construye infraestructura financiera moderna para las Américas, comenzando por Venezuela: remesas, liquidación rápida, cash-out, data y acceso financiero.">
-<meta property="og:title" content="BOAVIX — La capa financiera para Venezuela y su diáspora">
-<meta property="og:description" content="Infraestructura financiera moderna para las Américas. Capa moderna sobre el sistema financiero — más rápida, más accesible, más eficiente.">
+<title>BOAVIX — Infraestructura financiera para las Américas</title>
+<meta name="description" content="BOAVIX construye infraestructura financiera para mover valor entre Estados Unidos, Canadá y Latinoamérica, comenzando por Venezuela. Pagos, liquidación, data y acceso financiero.">
+<meta property="og:title" content="BOAVIX — Infraestructura financiera para las Américas">
+<meta property="og:description" content="BOAVIX construye la capa moderna para mover valor entre Estados Unidos, Canadá y Latinoamérica. Más rápido, más barato, con data accionable.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.boavix.com/">
 <meta property="og:image" content="https://www.boavix.com/assets/boavix-b-logo.png">
@@ -96,6 +96,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-title .hl{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .hero-sub{margin-top:28px;max-width:560px;font-size:18px;line-height:1.55;color:var(--ink)}
 .hero-sub b{color:var(--white);font-weight:600}
+.hero-infra{margin-top:14px;font-size:14px;font-family:var(--f-mono);letter-spacing:.08em;color:var(--ink-dim)}
 .hero-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .btn-primary{padding:16px 28px;background:var(--brand-grad);color:var(--navy-0);font-weight:600;font-size:14px;letter-spacing:.02em;border-radius:999px;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 32px -8px rgba(0,229,199,.5),0 8px 32px -8px rgba(184,71,255,.4),inset 0 1px 0 rgba(255,255,255,.3)}
 .btn-primary:hover{transform:translateY(-2px)}
@@ -147,8 +148,10 @@ section{position:relative}
 
 /* PILLARS — refinement 9: equal card heights */
 .pillars{padding:140px 0;background:linear-gradient(180deg,var(--navy-1) 0%,var(--navy-0) 100%);overflow:hidden}
-.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-@media (max-width:960px){.pillars-grid{grid-template-columns:1fr}}
+.pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:stretch}
+@media (max-width:1200px){.pillars-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:960px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.pillars-grid{grid-template-columns:1fr}}
 .pillar{display:flex;flex-direction:column;padding:40px 32px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s;min-height:380px}
 .pillar:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
 .pillar-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--cyan);margin-bottom:26px}
@@ -192,6 +195,20 @@ section{position:relative}
 .roadmap-card p{font-size:15px;line-height:1.6;color:var(--ink-dim);margin:0}
 @media (max-width:768px){.roadmap-card{padding:26px 22px}.roadmap-card h3{font-size:20px}}
 
+.corridors{padding:100px 0;background:var(--navy-0)}
+.corridors-head{text-align:center;margin-bottom:60px}
+.corridors-head .num{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px}
+.corridors-head h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.02em;color:var(--white);text-wrap:balance}
+.corridors-head p{margin-top:16px;color:var(--ink-dim);font-size:16px;max-width:580px;margin-left:auto;margin-right:auto}
+.corridors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:960px){.corridors-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.corridors-grid{grid-template-columns:1fr}}
+.corridor-card{padding:36px 28px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:20px;transition:transform .3s,border-color .3s}
+.corridor-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
+.corridor-flag{font-size:36px;margin-bottom:16px}
+.corridor-role{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.corridor-name{font-size:22px;font-weight:600;color:var(--white);margin-bottom:12px}
+.corridor-desc{font-size:14px;line-height:1.6;color:var(--ink-dim)}
 .compliance{padding:96px 0;background:var(--navy-1);position:relative}
 .compliance::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(0,229,199,.06),transparent 70%);pointer-events:none}
 .compliance .wrap{position:relative}
@@ -326,7 +343,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 <meta property="og:site_name" content="BOAVIX">
 <meta property="og:locale" content="es_VE">
 <meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:title" content="BOAVIX — La capa financiera para Venezuela y su diáspora">
+<meta name="twitter:title" content="BOAVIX — Infraestructura financiera para las Américas">
 <meta name="twitter:description" content="Infraestructura financiera moderna para las Américas, comenzando por Venezuela.">
 <meta name="twitter:image" content="https://www.boavix.com/assets/boavix-b-logo.png">
 <meta name="author" content="BOAVIX · Dossdan Group">
@@ -341,7 +358,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
   "name":"BOAVIX",
   "url":"https://www.boavix.com/",
   "logo":"https://www.boavix.com/assets/boavix-b-logo.png",
-  "description":"BOAVIX es la fintech de remesas stablecoin-nativas para el corredor Venezuela–Canadá–Estados Unidos.",
+  "description":"BOAVIX construye infraestructura financiera moderna para mover valor entre Estados Unidos, Canadá y Latinoamérica, comenzando por Venezuela.",
   "foundingDate":"2026",
   "parentOrganization":{"@type":"Organization","name":"Dossdan Group"},
   "areaServed":[{"@type":"Country","name":"Venezuela"},{"@type":"Country","name":"Canada"},{"@type":"Country","name":"United States"}],
@@ -354,11 +371,11 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
   "@context":"https://schema.org",
   "@type":"FinancialService",
   "@id":"https://www.boavix.com/#service",
-  "name":"BOAVIX — Remesas Stablecoin",
+  "name":"BOAVIX — Infraestructura Financiera para las Américas",
   "provider":{"@id":"https://www.boavix.com/#organization"},
   "url":"https://www.boavix.com/",
   "serviceType":"Cross-border stablecoin remittance",
-  "description":"Red de remesas stablecoin-nativas entre Venezuela, Canadá y Estados Unidos. Liquidación en 30 segundos, 1%–2% de comisión.",
+  "description":"Infraestructura financiera para mover valor entre Estados Unidos, Canadá y Latinoamérica. Comenzando con remesas — evolucionando hacia la capa financiera completa.",
   "areaServed":[{"@type":"Country","name":"Venezuela"},{"@type":"Country","name":"Canada"},{"@type":"Country","name":"United States"}],
   "audience":{"@type":"Audience","audienceType":"Venezuelan diaspora"},
   "offers":{"@type":"Offer","name":"Early Access Beta","availability":"https://schema.org/PreOrder"},
@@ -410,7 +427,8 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
     <div class="hero-top">
       <div class="eyebrow hero-eyebrow" data-t="hero.eyebrow">Infraestructuras financieras para las Américas</div>
       <h1 class="hero-title" data-t-html="hero.title">La capa financiera<br>que <span class="hl">Venezuela</span> nunca tuvo.</h1>
-      <p class="hero-sub" data-t-html="hero.sub">El sistema financiero en América Latina está evolucionando. <b>BOAVIX</b> construye una capa moderna para mover dinero más rápido, con menor costo y mayor acceso.</p>
+      <p class="hero-sub" data-t-html="hero.sub">BOAVIX construye una capa moderna para mover valor entre Estados Unidos, Canadá y Latinoamérica, comenzando por Venezuela.</p>
+      <p class="hero-infra" data-t="hero.infra">Remesas son el primer caso de uso. La visión es infraestructura.</p>
       <div class="hero-cta">
         <a href="#waitlist" class="btn-primary"><span data-t="hero.cta">Solicitar acceso anticipado</span> <span class="arrow">→</span></a>
         <span class="hero-meta"><span class="dot"></span><span data-t="hero.meta">Acceso anticipado próximamente</span></span>
@@ -431,15 +449,15 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
     <div class="signal-grid">
       <div class="reveal">
         <div class="num section-num" data-t="signal.eb">— 001 · La Señal</div>
-        <h2 data-t-html="signal.h">Los sistemas tradicionales están regresando. <span class="grad-text">Pero no están optimizados.</span></h2>
+        <h2 data-t-html="signal.h">La infraestructura financiera entre Norteamérica y LATAM está fragmentada. <span class="grad-text">Nosotros la modernizamos.</span></h2>
       </div>
       <div class="reveal d1">
         <div class="signal-body">
-          <p data-t="signal.p1">Para millones de personas, mover dinero entre Latinoamérica y el mundo sigue siendo lento, costoso y limitado — entre familias, entre países, entre vidas.</p>
-          <p data-t-html="signal.p2">Transferencias que pueden tardar días. Costos elevados para familias y pequeños negocios. <em>Acceso limitado a servicios modernos. Poca data útil para construir historial financiero.</em></p>
-          <p data-t="signal.p3">BOAVIX empieza en Venezuela porque ahí es donde la siguiente etapa de infraestructura financiera se necesita primero.</p>
+          <p data-t="signal.p1">Familias separadas por fronteras. Freelancers sin historial bancario. Negocios que pagan comisiones abusivas. El dinero ya se mueve — pero el sistema no fue diseñado para esta gente.</p>
+          <p data-t-html="signal.p2">Entre Estados Unidos, Canadá y Latinoamérica circulan más de <em>155 mil millones de dólares al año</em> en remesas — casi todo por rieles de los años 70, con comisiones de 5%–10% y sin generar ningún dato financiero útil.</p>
+          <p data-t="signal.p3">BOAVIX conecta los corredores donde este problema es más urgente — comenzando con Estados Unidos, Canadá y Venezuela.</p>
         </div>
-        <div class="signal-quote" data-t="signal.q">"El acceso financiero moderno no debería ser un privilegio de la geografía."</div>
+        <div class="signal-quote" data-t="signal.q">"El dinero ya se mueve. El problema es que el sistema no fue diseñado para quienes más lo necesitan."</div>
         <div class="delta">
           <div class="delta-head">
             <span data-t="signal.delta">Legacy rails · vs · Modern rails</span>
@@ -448,11 +466,11 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
           <div class="delta-row">
             <div class="delta-cell">
               <div class="k" data-t="signal.d1a">Legacy rails</div>
-              <div class="v">1–3 <small data-t="signal.days">días · 5%–10% costo · procesos fragmentados · acceso limitado</small></div>
+              <div class="v">1–3 <small data-t="signal.days">días · 5%–10% costo · procesos fragmentados · acceso limitado · sin data útil</small></div>
             </div>
             <div class="delta-cell">
               <div class="k" data-t="signal.d1b">BOAVIX modern rails</div>
-              <div class="v">~30s <small data-t="signal.d1b2">objetivo · 1%–2% fee · experiencia simple · acceso masivo</small></div>
+              <div class="v">~30s <small data-t="signal.d1b2">objetivo · 1%–2% fee · experiencia simple · acceso masivo · data transaccional accionable</small></div>
             </div>
           </div>
         </div>
@@ -477,27 +495,39 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 <section class="pillars" id="pillars">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="num" data-t="pill.num">— 002 · Lo que viene</div>
-      <h2 data-t-html="pill.h">No reemplazamos el sistema. <span class="hl">Construimos la capa encima.</span></h2>
+      <div class="num" data-t="pill.num">— 002 · Infraestructura</div>
+      <h2 data-t-html="pill.h">Cinco pilares. <span class="hl">Una sola capa.</span></h2>
     </div>
     <div class="pillars-grid">
       <article class="pillar reveal d1">
         <div class="pillar-num">01</div>
-        <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 17 Q17 5,31 17 Q17 29,3 17 Z"/><circle cx="17" cy="17" r="3" fill="url(#brandg)" stroke="none"/></svg></div>
-        <h3 data-t="pill.1h">Conexión con el sistema, no reemplazo</h3>
-        <p data-t="pill.1p">Construimos una capa de infraestructura para remesas, liquidación, cash-out y data financiera. Donde el dinero ya se mueve, pero todavía no genera estructura.</p>
+        <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true" stroke="url(#brandg)" fill="none" stroke-width="1.6"><line x1="5" y1="17" x2="29" y2="17" stroke-linecap="round"/><line x1="17" y1="5" x2="17" y2="29" stroke-linecap="round"/><line x1="10" y1="10" x2="24" y2="24" stroke-linecap="round"/><line x1="24" y1="10" x2="10" y2="24" stroke-linecap="round"/></svg></div>
+        <h3 data-t="pill.1h">Pagos</h3>
+        <p data-t="pill.1p">Transferencias cross-border rápidas entre corredores activos. Sin fricciones, sin demoras bancarias, sin explicaciones absurdas.</p>
       </article>
       <article class="pillar reveal d2">
         <div class="pillar-num">02</div>
         <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M3 17 H31 M17 3 Q9 17,17 31 Q25 17,17 3"/></svg></div>
-        <h3 data-t="pill.2h">Un hemisferio. Una experiencia.</h3>
-        <p data-t="pill.2p">Velocidad, costo y acceso modernos. La misma calidad de experiencia, estés donde estés.</p>
+        <h3 data-t="pill.2h">Liquidación</h3>
+        <p data-t="pill.2p">Stablecoins como capa de liquidación interna. Velocidad de crypto, experiencia de fintech moderna.</p>
       </article>
       <article class="pillar reveal d3">
         <div class="pillar-num">03</div>
+        <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="12" width="22" height="14" rx="3"/><path d="M12 12 V9 Q17 5,22 9 V12"/><circle cx="17" cy="19" r="2.5" fill="url(#brandg)" stroke="none"/></svg></div>
+        <h3 data-t="pill.3h">Cash-out</h3>
+        <p data-t="pill.3p">El dinero llega listo para usar. Acceso local al valor, en la moneda correcta, sin pasos adicionales.</p>
+      </article>
+      <article class="pillar reveal d4">
+        <div class="pillar-num">04</div>
         <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3 L29 9 V19 C29 25,23 29,17 31 C11 29,5 25,5 19 V9 Z"/><path d="M12 17 L16 21 L23 13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3 data-t="pill.3h">Una nueva capa de confianza</h3>
-        <p data-t="pill.3p">Cada transacción puede sentar la base de un historial financiero alternativo. Una nueva forma de construir acceso a partir de data real.</p>
+        <h3 data-t="pill.4h">Compliance</h3>
+        <p data-t="pill.4p">Diseñada para cumplimiento desde el inicio. FINTRAC, FinCEN y SUDEBAN. No un parche — una base.</p>
+      </article>
+      <article class="pillar reveal d5">
+        <div class="pillar-num">05</div>
+        <div class="pillar-glyph"><svg viewBox="0 0 34 34" aria-hidden="true" stroke="url(#brandg)" fill="none" stroke-width="1.6"><polyline points="5,26 11,18 17,21 25,10 29,13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5" cy="26" r="2" fill="url(#brandg)" stroke="none"/><circle cx="29" cy="13" r="2" fill="url(#brandg)" stroke="none"/></svg></div>
+        <h3 data-t="pill.5h">Data</h3>
+        <p data-t="pill.5p">Cada transacción genera señal. La base del historial financiero que abre el acceso a productos futuros.</p>
       </article>
     </div>
   </div>
@@ -527,6 +557,42 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
         <div class="whynow-num">03</div>
         <h3 data-t="wn.c3h">Data financiera</h3>
         <p data-t="wn.c3p">Cada transacción puede ayudar a construir acceso, historial y productos financieros futuros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="corridors" id="corridors">
+  <div class="wrap">
+    <div class="corridors-head reveal">
+      <div class="num" data-t="cor.num">— Los corredores</div>
+      <h2 data-t-html="cor.h">Dónde construimos <span class="hl">primero.</span></h2>
+      <p data-t="cor.sub">Cuatro geografías. Un solo sistema de infraestructura.</p>
+    </div>
+    <div class="corridors-grid">
+      <div class="corridor-card reveal d1">
+        <div class="corridor-flag">🇺🇸</div>
+        <div class="corridor-role" data-t="cor.1r">Mercado principal</div>
+        <div class="corridor-name">Estados Unidos</div>
+        <p class="corridor-desc" data-t="cor.1p">El mayor mercado de envío de remesas hacia LATAM. Sede de millones de venezolanos y comunidades latinas que envían valor a sus familias regularmente.</p>
+      </div>
+      <div class="corridor-card reveal d2">
+        <div class="corridor-flag">🇨🇦</div>
+        <div class="corridor-role" data-t="cor.2r">Base estratégica</div>
+        <div class="corridor-name">Canadá</div>
+        <p class="corridor-desc" data-t="cor.2p">Origen del equipo fundador y primer corredor activo. Ruta regulatoria clara bajo FINTRAC.</p>
+      </div>
+      <div class="corridor-card reveal d3">
+        <div class="corridor-flag">🇻🇪</div>
+        <div class="corridor-role" data-t="cor.3r">Primer mercado receptor</div>
+        <div class="corridor-name">Venezuela</div>
+        <p class="corridor-desc" data-t="cor.3p">Donde el problema es más urgente. 8.9 millones de venezolanos en el exterior generan uno de los flujos de remesas más importantes del hemisferio.</p>
+      </div>
+      <div class="corridor-card reveal d4">
+        <div class="corridor-flag">🌎</div>
+        <div class="corridor-role" data-t="cor.4r">Expansión</div>
+        <div class="corridor-name">LATAM</div>
+        <p class="corridor-desc" data-t="cor.4p">Colombia, México, Perú y más. El mismo problema existe en toda la región. La infraestructura que construimos es replicable corredor a corredor.</p>
       </div>
     </div>
   </div>
@@ -590,7 +656,7 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
       <div class="roadmap-card reveal d1">
         <div class="roadmap-phase">Fase 1</div>
         <h3 data-t="prod.r1h">BOAVIX Pay</h3>
-        <p data-t="prod.r1p">Remesas y transferencias cross-border con liquidación rápida y experiencia simple.</p>
+        <p data-t="prod.r1p">Remesas y transferencias entre Estados Unidos, Canadá y Venezuela — con liquidación rápida y experiencia simple.</p>
       </div>
       <div class="roadmap-card reveal d2">
         <div class="roadmap-phase">Fase 2</div>
@@ -633,8 +699,8 @@ footer{padding:80px 0 40px;background:var(--navy-1);border-top:1px solid var(--l
 <section class="investors" id="investors">
   <div class="wrap reveal">
     <div class="eyebrow" style="justify-content:center" data-t="inv.eb">Inversionistas</div>
-    <h2 data-t-html="inv.h">BOAVIX empieza con remesas. <span class="grad-text">La oportunidad real es la infraestructura.</span></h2>
-    <p data-t-html="inv.p">Pagos, liquidación, data, crédito y acceso financiero para mercados en transición. La reapertura financiera no elimina la necesidad de BOAVIX — la acelera. <span class="inv-talk">Hablemos.</span></p>
+    <h2 data-t-html="inv.h">BOAVIX empieza con un corredor claro. <span class="grad-text">La oportunidad es mucho mayor.</span></h2>
+    <p data-t-html="inv.p">BOAVIX empieza con un corredor claro, pero apunta a una oportunidad mucho mayor: infraestructura financiera para mercados donde el dinero se mueve constantemente, pero todavía no genera acceso, historial ni productos financieros modernos. Remesas son el punto de entrada. Infraestructura es el negocio. <span class="inv-talk">Hablemos.</span></p>
     <div class="inv-actions">
       <a href="mailto:investors@boavix.com" class="inv-email">investors@boavix.com →</a>
       <a href="/memorandum.html" class="cta-ghost" data-t="inv.deck">Memorándum del equipo</a>
@@ -683,23 +749,23 @@ const DICT = {
     "nav.signal":"La Señal","nav.pillars":"Infraestructura","nav.product":"Producto","nav.investors":"Inversionistas","nav.cta":"Solicitar Acceso",
     "hero.eyebrow":"Infraestructuras financieras para las Américas",
     "hero.title":'La capa financiera<br>que <span class="hl">Venezuela</span> nunca tuvo.',
-    "hero.sub":"El sistema financiero en América Latina está evolucionando. <b>BOAVIX</b> construye una capa moderna para mover dinero más rápido, con menor costo y mayor acceso.",
+    "hero.sub":"BOAVIX construye una capa moderna para mover valor entre Estados Unidos, Canadá y Latinoamérica, comenzando por Venezuela.","hero.infra":"Remesas son el primer caso de uso. La visión es infraestructura.",
     "hero.cta":"Solicitar acceso anticipado","hero.meta":"Acceso anticipado próximamente",
     "hero.s1k":"Cupo fundadores","hero.s1d":"Primeros en acceder",
     "hero.s2k":"Crédito de lanzamiento","hero.s2d":"Para los primeros 1,000",
     "hero.s3k":"Corredores activos","hero.s3d":"Canadá, Estados Unidos y Venezuela",
     "hero.s4k":"Liquidación","hero.s4d":"Sin calendarios bancarios",
-    "signal.eb":"— 001 · La Señal","signal.h":'Los sistemas tradicionales están regresando. <span class="grad-text">Pero no están optimizados.</span>',
-    "signal.p1":"Para millones de personas, mover dinero entre Latinoamérica y el mundo sigue siendo lento, costoso y limitado — entre familias, entre países, entre vidas.",
-    "signal.p2":"Transferencias que pueden tardar días. Costos elevados para familias y pequeños negocios. <em>Acceso limitado a servicios modernos. Poca data útil para construir historial financiero.</em>",
-    "signal.p3":"BOAVIX empieza en Venezuela porque ahí es donde la siguiente etapa de infraestructura financiera se necesita primero.",
-    "signal.q":'"El acceso financiero moderno no debería ser un privilegio de la geografía."',
+    "signal.eb":"— 001 · La Señal","signal.h":'La infraestructura financiera entre Norteamérica y LATAM está fragmentada. <span class="grad-text">Nosotros la modernizamos.</span>',
+    "signal.p1":"Familias separadas por fronteras. Freelancers sin historial bancario. Negocios que pagan comisiones abusivas. El dinero ya se mueve — pero el sistema no fue diseñado para esta gente.",
+    "signal.p2":"Entre Estados Unidos, Canadá y Latinoamérica circulan más de <em>155 mil millones de dólares al año</em> en remesas — casi todo por rieles de los años 70, con comisiones de 5%–10% y sin generar ningún dato financiero útil.",
+    "signal.p3":"BOAVIX conecta los corredores donde este problema es más urgente — comenzando con Estados Unidos, Canadá y Venezuela.",
+    "signal.q":'"El dinero ya se mueve. El problema es que el sistema no fue diseñado para quienes más lo necesitan."',
     "signal.delta":"Legacy rails · vs · Modern rails","signal.d1a":"Legacy rails","signal.d1b":"BOAVIX modern rails",
-    "signal.days":"días · 5%–10% costo · procesos fragmentados · acceso limitado","signal.d1b2":"objetivo · 1%–2% fee · experiencia simple · acceso masivo",
-    "pill.num":"— 002 · Lo que viene","pill.h":'No reemplazamos el sistema. <span class="hl">Construimos la capa encima.</span>',
-    "pill.1h":"Conexión con el sistema, no reemplazo","pill.1p":"Construimos una capa de infraestructura para remesas, liquidación, cash-out y data financiera. Donde el dinero ya se mueve, pero todavía no genera estructura.",
-    "pill.2h":"Un hemisferio. Una experiencia.","pill.2p":"Velocidad, costo y acceso modernos. La misma calidad de experiencia, estés donde estés.",
-    "pill.3h":"Una nueva capa de confianza","pill.3p":"Cada transacción puede sentar la base de un historial financiero alternativo. Una nueva forma de construir acceso a partir de data real.",
+    "signal.days":"días · 5%–10% costo · procesos fragmentados · acceso limitado · sin data útil","signal.d1b2":"objetivo · 1%–2% fee · experiencia simple · acceso masivo · data transaccional accionable",
+    "pill.num":"— 002 · Infraestructura","pill.h":'Cinco pilares. <span class="hl">Una sola capa.</span>',
+    "pill.1h":"Pagos","pill.1p":"Transferencias cross-border rápidas entre corredores activos. Sin fricciones, sin demoras bancarias, sin explicaciones absurdas.",
+    "pill.2h":"Liquidación","pill.2p":"Stablecoins como capa de liquidación interna. Velocidad de crypto, experiencia de fintech moderna.",
+    "pill.3h":"Cash-out","pill.3p":"El dinero llega listo para usar. Acceso local al valor, en la moneda correcta, sin pasos adicionales.","pill.4h":"Compliance","pill.4p":"Diseñada para cumplimiento desde el inicio. FINTRAC, FinCEN y SUDEBAN. No un parche — una base.","pill.5h":"Data","pill.5p":"Cada transacción genera señal. La base del historial financiero que abre el acceso a productos futuros.",
     "num.num":"— 003 · El tamaño real","num.h":'El mercado que <span class="hl">nadie quiere ver.</span>',
     "num.1k":"Remesas LATAM / año","num.1d":"Más de 155 mil millones de dólares cruzan fronteras cada año. Casi todo por sistemas de los 70s.",
     "num.2k":"Venezolanos fuera","num.2d":"La mayor diáspora viviente del hemisferio. Cada uno, un puente financiero diario.",
@@ -719,12 +785,13 @@ const DICT = {
     "ur.dup":"Ya estás en la lista — nos vemos pronto.",
     "ur.err":"Algo falló. Intenta de nuevo o escríbenos a info@boavix.com",
     "ur.sending":"Enviando…",
-    "inv.eb":"Inversionistas","inv.h":'BOAVIX empieza con remesas. <span class="grad-text">La oportunidad real es la infraestructura.</span>',
-    "inv.p":'Pagos, liquidación, data, crédito y acceso financiero para mercados en transición. La reapertura financiera no elimina la necesidad de BOAVIX — la acelera. <span class="inv-talk">Hablemos.</span>',
+    "inv.eb":"Inversionistas","inv.h":'BOAVIX empieza con un corredor claro. <span class="grad-text">La oportunidad es mucho mayor.</span>',
+    "inv.p":'BOAVIX empieza con un corredor claro, pero apunta a una oportunidad mucho mayor: infraestructura financiera para mercados donde el dinero se mueve constantemente, pero todavía no genera acceso, historial ni productos financieros modernos. Remesas son el punto de entrada. Infraestructura es el negocio. <span class="inv-talk">Hablemos.</span>',
     "inv.deck":"Memorándum del equipo",
     "ctx.eb":"— El nuevo contexto","ctx.h":"El nuevo contexto.","ctx.p":"Venezuela está reingresando progresivamente al sistema financiero global. Nuevas conexiones bancarias pueden volver a abrirse, pero la infraestructura tradicional no fue diseñada para velocidad, eficiencia ni acceso masivo.","ctx.p2":"BOAVIX nace para operar en este nuevo ciclo: no como reemplazo del sistema, sino como una capa moderna sobre él.",
     "wn.eb":"— Por qué ahora","wn.h":"Por qué ahora.","wn.p":"Por primera vez en años, Venezuela puede entrar en una nueva etapa de reintegración financiera. Pero la reapertura bancaria por sí sola no resuelve velocidad, costo, acceso ni data. Ese espacio entre el sistema tradicional y las necesidades reales del mercado es donde BOAVIX construye.","wn.c1h":"Reintegración financiera","wn.c1p":"Nuevos canales pueden abrirse, pero necesitan infraestructura moderna.","wn.c2h":"Liquidación moderna","wn.c2p":"Stablecoins permiten mover valor más rápido sin mostrar una experiencia crypto al usuario.","wn.c3h":"Data financiera","wn.c3p":"Cada transacción puede ayudar a construir acceso, historial y productos financieros futuros.",
-    "prod.r1h":"BOAVIX Pay","prod.r1p":"Remesas y transferencias cross-border con liquidación rápida y experiencia simple.","prod.r2h":"Data Layer","prod.r2p":"Captura de señales transaccionales para entender frecuencia, comportamiento y patrones financieros.","prod.r3h":"Pulso","prod.r3p":"Scoring alternativo para construir acceso financiero desde data real.","prod.r4h":"BOAVIX Capital","prod.r4p":"Infraestructura futura para productos financieros más sofisticados entre LATAM y Norteamérica.",
+    "cor.num":"— Los corredores","cor.h":'Dónde construimos <span class="hl">primero.</span>',"cor.sub":"Cuatro geografías. Un solo sistema de infraestructura.","cor.1r":"Mercado principal","cor.1p":"El mayor mercado de envío de remesas hacia LATAM. Sede de millones de venezolanos y comunidades latinas que envían valor a sus familias regularmente.","cor.2r":"Base estratégica","cor.2p":"Origen del equipo fundador y primer corredor activo. Ruta regulatoria clara bajo FINTRAC.","cor.3r":"Primer mercado receptor","cor.3p":"Donde el problema es más urgente. 8.9 millones de venezolanos en el exterior generan uno de los flujos de remesas más importantes del hemisferio.","cor.4r":"Expansión","cor.4p":"Colombia, México, Perú y más. El mismo problema existe en toda la región. La infraestructura que construimos es replicable corredor a corredor.",
+    "prod.r1h":"BOAVIX Pay","prod.r1p":"Remesas y transferencias entre Estados Unidos, Canadá y Venezuela — con liquidación rápida y experiencia simple.","prod.r2h":"Data Layer","prod.r2p":"Captura de señales transaccionales para entender frecuencia, comportamiento y patrones financieros.","prod.r3h":"Pulso","prod.r3p":"Scoring alternativo para construir acceso financiero desde data real.","prod.r4h":"BOAVIX Capital","prod.r4p":"Infraestructura futura para productos financieros más sofisticados entre LATAM y Norteamérica.",
     "comp.eb":"— Cumplimiento","comp.h":"Diseñada para cumplimiento en tres jurisdicciones","comp.p":"BOAVIX está siendo construida desde el primer día con una ruta regulatoria clara: Canadá, Estados Unidos y Venezuela. Nuestro objetivo es operar bajo registros y marcos aplicables como FINTRAC, FinCEN y SUDEBAN, creando una infraestructura más confiable para mover dinero hacia y desde Latinoamérica.","comp.j1":"FINTRAC · Canadá","comp.j2":"FinCEN · Estados Unidos","comp.j3":"SUDEBAN · Venezuela",
     "ft.tag":"Conectando Latinoamérica con el\u00a0mundo.","ft.c1":"Producto","ft.c1a":"La Señal","ft.c1b":"Infraestructura","ft.c1c":"Preview",
     "ft.c2":"Compañía","ft.c2a":"Acerca de nosotros","ft.c2b":"Inversionistas","ft.c2c":"Memorándum del equipo",
@@ -735,23 +802,23 @@ const DICT = {
     "nav.signal":"The Signal","nav.pillars":"Infrastructure","nav.product":"Product","nav.investors":"Investors","nav.cta":"Request Access",
     "hero.eyebrow":"Financial infrastructure for the Americas",
     "hero.title":'The financial layer<br><span class="hl">Venezuela</span> never had.',
-    "hero.sub":"The financial system in Latin America is evolving. <b>BOAVIX</b> builds a modern layer to move money faster, at lower cost, with broader access.",
+    "hero.sub":"BOAVIX builds a modern layer to move value between the United States, Canada, and Latin America — starting with Venezuela.","hero.infra":"Remittances are the first use case. The vision is infrastructure.",
     "hero.cta":"Request early access","hero.meta":"Early access coming soon",
     "hero.s1k":"Founder spots","hero.s1d":"First to access",
     "hero.s2k":"Launch credit","hero.s2d":"For the first 1,000",
     "hero.s3k":"Active corridors","hero.s3d":"Canada, United States, and Venezuela",
     "hero.s4k":"Settlement","hero.s4d":"No banking calendar",
-    "signal.eb":"— 001 · The Signal","signal.h":'Traditional systems are returning. <span class="grad-text">But they are not optimized.</span>',
-    "signal.p1":"For millions of people, moving money between Latin America and the world remains slow, expensive, and limited — between families, between countries, between lives.",
-    "signal.p2":"Transfers that can take days. High costs for families and small businesses. <em>Limited access to modern services. Little useful data to build financial history.</em>",
-    "signal.p3":"BOAVIX starts in Venezuela because that is where the next stage of financial infrastructure is needed first.",
-    "signal.q":'"Modern financial access should not be a privilege of geography."',
+    "signal.eb":"— 001 · The Signal","signal.h":'Financial infrastructure between North America and LATAM is fragmented. <span class="grad-text">We modernize it.</span>',
+    "signal.p1":"Families separated by borders. Freelancers with no banking history. Businesses paying abusive fees. Money is already moving — the system just was not built for these people.",
+    "signal.p2":"Between the United States, Canada, and Latin America, over <em>$155 billion per year</em> moves in remittances — almost all of it over 1970s rails, at 5%–10% fees, generating zero useful financial data.",
+    "signal.p3":"BOAVIX connects the corridors where this problem is most urgent — starting with the United States, Canada, and Venezuela.",
+    "signal.q":'"Money is already moving. The problem is the system was not built for the people who need it most."',
     "signal.delta":"Legacy rails · vs · Modern rails","signal.d1a":"Legacy rails","signal.d1b":"BOAVIX modern rails",
-    "signal.days":"days · 5%–10% cost · fragmented processes · limited access","signal.d1b2":"target · 1%–2% fee · simple experience · broad access",
-    "pill.num":"— 002 · What's coming","pill.h":'We don\'t replace the system. <span class="hl">We build the layer on top.</span>',
-    "pill.1h":"Connecting the system, not replacing it","pill.1p":"We build an infrastructure layer for remittances, settlement, cash-out, and financial data. Where money already moves, but still lacks structure.",
-    "pill.2h":"One hemisphere. One experience.","pill.2p":"Modern speed, cost, and access. The same quality of experience, wherever you are.",
-    "pill.3h":"A new layer of trust","pill.3p":"Every transaction can lay the foundation of an alternative financial history. A new way to build access from real data.",
+    "signal.days":"days · 5%–10% cost · fragmented processes · limited access · no useful financial data","signal.d1b2":"target · 1%–2% fee · simple experience · broad access · actionable transactional data",
+    "pill.num":"— 002 · Infrastructure","pill.h":'Five pillars. <span class="hl">One layer.</span>',
+    "pill.1h":"Payments","pill.1p":"Fast cross-border transfers across active corridors. No friction, no banking delays, no unexplained rejections.",
+    "pill.2h":"Settlement","pill.2p":"Stablecoins as the internal settlement layer. Crypto speed, modern fintech experience.",
+    "pill.3h":"Cash-out","pill.3p":"Money arrives ready to use. Local access to value, in the right currency, with no extra steps.","pill.4h":"Compliance","pill.4p":"Built for compliance from day one. FINTRAC, FinCEN, and SUDEBAN. Not a patch — a foundation.","pill.5h":"Data","pill.5p":"Every transaction generates a signal. The foundation of financial history that unlocks future access.",
     "num.num":"— 003 · The real size","num.h":'The market <span class="hl">no one wants to see.</span>',
     "num.1k":"LATAM remittances / year","num.1d":"Over $155 billion crosses borders every year. Almost all of it over 1970s rails.",
     "num.2k":"Venezuelans abroad","num.2d":"The largest living diaspora in the hemisphere. Each one, a daily financial bridge.",
@@ -771,12 +838,13 @@ const DICT = {
     "ur.dup":"You're already on the list — see you soon.",
     "ur.err":"Something went wrong. Try again or email info@boavix.com",
     "ur.sending":"Sending…",
-    "inv.eb":"Investors","inv.h":'BOAVIX starts with remittances. <span class="grad-text">The real opportunity is infrastructure.</span>',
-    "inv.p":'Payments, settlement, data, credit, and financial access for markets in transition. Financial reopening does not remove the need for BOAVIX — it accelerates it. <span class="inv-talk">Let\u2019s talk.</span>',
+    "inv.eb":"Investors","inv.h":'BOAVIX starts with a clear corridor. <span class="grad-text">The opportunity is much larger.</span>',
+    "inv.p":'BOAVIX starts with a clear corridor, but aims at a much larger opportunity: financial infrastructure for markets where money moves constantly, but still generates no access, no history, and no modern financial products. Remittances are the entry point. Infrastructure is the business. <span class="inv-talk">Let\u2019s talk.</span>',
     "inv.deck":"Team memo",
     "ctx.eb":"— The new context","ctx.h":"The new context.","ctx.p":"Venezuela is progressively re-entering the global financial system. New banking connections may reopen, but traditional infrastructure was not designed for speed, efficiency, or broad access.","ctx.p2":"BOAVIX is built for this new cycle: not as a replacement for the system, but as a modern layer on top of it.",
     "wn.eb":"— Why now","wn.h":"Why now.","wn.p":"For the first time in years, Venezuela may enter a new stage of financial reintegration. But banking reopening alone does not solve speed, cost, access, or data. The space between traditional systems and real market needs is where BOAVIX builds.","wn.c1h":"Financial reintegration","wn.c1p":"New channels may reopen, but they need modern infrastructure.","wn.c2h":"Modern settlement","wn.c2p":"Stablecoins can move value faster without exposing users to a crypto-looking experience.","wn.c3h":"Financial data","wn.c3p":"Every transaction can help build access, history, and future financial products.",
-    "prod.r1h":"BOAVIX Pay","prod.r1p":"Cross-border remittances and transfers with fast settlement and a simple experience.","prod.r2h":"Data Layer","prod.r2p":"Captures transactional signals to understand frequency, behavior, and financial patterns.","prod.r3h":"Pulso","prod.r3p":"Alternative scoring to build financial access from real data.","prod.r4h":"BOAVIX Capital","prod.r4p":"Future infrastructure for more sophisticated financial products between LATAM and North America.",
+    "cor.num":"— The corridors","cor.h":'Where we build <span class="hl">first.</span>',"cor.sub":"Four geographies. One infrastructure system.","cor.1r":"Primary market","cor.1p":"The largest remittance-sending market to LATAM. Home to millions of Venezuelans and Latin communities who regularly send value to their families.","cor.2r":"Strategic base","cor.2p":"Home of the founding team and first active corridor. Clear regulatory path under FINTRAC.","cor.3r":"First receiving market","cor.3p":"Where the problem is most urgent. 8.9 million Venezuelans abroad generate one of the hemisphere's largest remittance flows.","cor.4r":"Expansion","cor.4p":"Colombia, Mexico, Peru and beyond. The same problem exists across the region. The infrastructure we build is replicable corridor by corridor.",
+    "prod.r1h":"BOAVIX Pay","prod.r1p":"Remittances and transfers between the United States, Canada, and Venezuela — with fast settlement and a simple experience.","prod.r2h":"Data Layer","prod.r2p":"Captures transactional signals to understand frequency, behavior, and financial patterns.","prod.r3h":"Pulso","prod.r3p":"Alternative scoring to build financial access from real data.","prod.r4h":"BOAVIX Capital","prod.r4p":"Future infrastructure for more sophisticated financial products between LATAM and North America.",
     "comp.eb":"— Compliance","comp.h":"Designed for compliance across three jurisdictions","comp.p":"BOAVIX is being built from day one with a clear regulatory path across Canada, the United States, and Venezuela. Our goal is to operate under applicable frameworks and registrations such as FINTRAC, FinCEN, and SUDEBAN, creating a more trusted infrastructure for moving money to and from Latin America.","comp.j1":"FINTRAC · Canada","comp.j2":"FinCEN · United States","comp.j3":"SUDEBAN · Venezuela",
     "ft.tag":"Connecting Latin America with the\u00a0world.","ft.c1":"Product","ft.c1a":"The Signal","ft.c1b":"Infrastructure","ft.c1c":"Preview",
     "ft.c2":"Company","ft.c2a":"About us","ft.c2b":"Investors","ft.c2c":"Team memo",
@@ -804,13 +872,13 @@ function applyLang(){
   });
   // update title + meta description
   if (LANG === 'en'){
-    document.title = "BOAVIX — The financial layer Venezuela never had";
+    document.title = "BOAVIX — Financial Infrastructure for the Americas";
     const md = document.querySelector('meta[name=description]');
-    if (md) md.setAttribute('content','BOAVIX builds modern financial infrastructure for the Americas, starting with Venezuela: remittances, fast settlement, cash-out, data, and financial access.');
+    if (md) md.setAttribute('content','BOAVIX builds a modern layer to move value between the United States, Canada, and Latin America — starting with Venezuela. Payments, settlement, data, and financial access.');
   } else {
-    document.title = "BOAVIX — La capa financiera para Venezuela y su diáspora";
+    document.title = "BOAVIX — Infraestructura financiera para las Américas";
     const md = document.querySelector('meta[name=description]');
-    if (md) md.setAttribute('content','BOAVIX construye infraestructura financiera moderna para las Américas, comenzando por Venezuela: remesas, liquidación rápida, cash-out, data y acceso financiero.');
+    if (md) md.setAttribute('content','BOAVIX construye infraestructura financiera para mover valor entre Estados Unidos, Canadá y Latinoamérica, comenzando por Venezuela. Pagos, liquidación, data y acceso financiero.');
   }
 }
 document.querySelectorAll('.lang-toggle button').forEach(b=>{
