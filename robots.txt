@@ -1,4 +1,4 @@
-# robots.txt for BOAVIX
+# robots.txt for BOAVIX Holdings
 # https://www.boavix.com
 
 User-agent: *
